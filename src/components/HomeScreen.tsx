@@ -7,14 +7,14 @@ interface HomeScreenProps {
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ onGetStarted }) => {
   return (
-    <div className="relative flex h-screen w-full flex-col overflow-hidden bg-white font-sans max-w-md mx-auto shadow-2xl">
+    <div className="relative flex h-screen w-full flex-col overflow-hidden bg-white dark:bg-dark-bg font-sans max-w-md mx-auto shadow-2xl transition-colors duration-200">
       {/* Header / Logo */}
       <header className="flex items-center justify-between px-6 py-8">
         <div className="flex items-center gap-2">
           <div className="bg-brand-blue flex size-8 items-center justify-center rounded">
             <BarChart3 className="text-white w-5 h-5" />
           </div>
-          <span className="text-xl font-bold tracking-tight text-primary-text">GPAMarket</span>
+          <span className="text-xl font-bold tracking-tight text-primary-text dark:text-dark-text">GPAMarket</span>
         </div>
       </header>
 
@@ -22,10 +22,10 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onGetStarted }) => {
       <main className="flex flex-1 flex-col items-center justify-center px-8 text-center">
         {/* Hero Text */}
         <div className="max-w-[320px] space-y-4">
-          <h1 className="text-3xl font-bold tracking-tight text-primary-text leading-[1.15]">
+          <h1 className="text-3xl font-bold tracking-tight text-primary-text dark:text-dark-text leading-[1.15]">
             The academic prediction platform for students.
           </h1>
-          <p className="text-slate-500 text-sm leading-relaxed">
+          <p className="text-slate-500 dark:text-dark-muted text-sm leading-relaxed">
             A professional tool for peer-to-peer performance tracking and forecasting.
           </p>
         </div>

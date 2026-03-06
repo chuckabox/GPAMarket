@@ -1,12 +1,22 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-primary-text: #2E4057;
   --color-brand-blue: #048BA8;
+
+  --color-dark-bg: #0F172A;
+  --color-dark-surface: #1E293B;
+  --color-dark-text: #F1F5F9;
+  --color-dark-muted: #94A3B8;
 }
 
 @layer base {
   body {
-    @apply text-primary-text;
+    @apply bg-white text-primary-text transition-colors duration-200;
+  }
+  .dark body {
+    @apply bg-dark-bg text-dark-text;
   }
 }

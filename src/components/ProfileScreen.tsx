@@ -1,0 +1,133 @@
+import React from 'react';
+import { Trophy, BarChart3, User, Swords, Settings, LogOut, ChevronRight } from 'lucide-react';
+
+interface ProfileScreenProps {
+  onNavigate: (screen: 'markets' | 'matchups' | 'profile' | 'leaderboard' | 'settings') => void;
+}
+
+const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigate }) => {
+  return (
+    <div className="flex flex-col min-h-screen bg-[#f6f6f8] dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl relative overflow-x-hidden transition-colors duration-200">
+      {/* Header */}
+      <header className="bg-white dark:bg-dark-surface px-6 pt-12 pb-6 border-b border-slate-100 dark:border-slate-800">
+        <div className="flex items-center justify-between mb-6">
+          <h1 className="text-2xl font-black text-primary-text dark:text-dark-text">Profile</h1>
+          <button 
+            onClick={() => onNavigate('settings')}
+            className="p-2 rounded-full bg-slate-50 dark:bg-slate-800 text-slate-400 dark:text-dark-muted"
+          >
+            <Settings className="w-5 h-5" />
+          </button>
+        </div>
+
+        <div className="flex items-center gap-4">
+          <div className="w-20 h-20 rounded-full border-4 border-brand-blue/10 p-1">
+            <img 
+              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=200&h=200" 
+              alt="Profile" 
+              className="w-full h-full rounded-full object-cover"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="flex flex-col">
+            <h2 className="text-xl font-bold text-primary-text dark:text-dark-text">Peter C.</h2>
+            <p className="text-sm text-slate-500 dark:text-dark-muted font-medium">University of Queensland</p>
+            <div className="mt-2 flex items-center gap-2">
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-blue text-white uppercase tracking-wider">Level 12</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-dark-muted uppercase tracking-wider">Scholar</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Stats Grid */}
+      <div className="grid grid-cols-2 gap-3 p-4">
+        <div className="bg-white dark:bg-dark-surface p-4 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
+          <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider">Total Winnings</span>
+          <p className="text-xl font-black text-primary-text dark:text-dark-text mt-1">$1,240.50</p>
+        </div>
+        <div className="bg-white dark:bg-dark-surface p-4 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
+          <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider">Win Rate</span>
+          <p className="text-xl font-black text-green-600 mt-1">68.4%</p>
+        </div>
+      </div>
+
+      {/* Menu */}
+      <main className="flex-1 px-4 pb-24">
+        <div className="bg-white dark:bg-dark-surface rounded-2xl border border-slate-100 dark:border-slate-800 divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden shadow-sm">
+          <button className="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-brand-blue/10 dark:bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+                <Trophy className="w-4 h-4" />
+              </div>
+              <span className="text-sm font-bold text-primary-text dark:text-dark-text">My Achievements</span>
+            </div>
+            <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600" />
+          </button>
+          <button className="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-brand-blue/10 dark:bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+                <BarChart3 className="w-4 h-4" />
+              </div>
+              <span className="text-sm font-bold text-primary-text dark:text-dark-text">Betting History</span>
+            </div>
+            <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600" />
+          </button>
+          <button className="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-brand-blue/10 dark:bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+                <Swords className="w-4 h-4" />
+              </div>
+              <span className="text-sm font-bold text-primary-text dark:text-dark-text">Duel Statistics</span>
+            </div>
+            <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600" />
+          </button>
+          <button className="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-red-500">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center">
+                <LogOut className="w-4 h-4" />
+              </div>
+              <span className="text-sm font-bold">Log Out</span>
+            </div>
+          </button>
+        </div>
+      </main>
+
+      {/* Bottom Nav */}
+      <nav className="sticky bottom-0 bg-white/95 dark:bg-dark-surface/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 pb-8 pt-2">
+        <div className="flex justify-around items-center px-4">
+          <button 
+            onClick={() => onNavigate('leaderboard')}
+            className="flex flex-col items-center gap-1 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text transition-colors"
+          >
+            <Trophy className="w-6 h-6" />
+            <span className="text-[10px] font-semibold">Leaderboard</span>
+          </button>
+          <button 
+            onClick={() => onNavigate('matchups')}
+            className="flex flex-col items-center gap-1 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text transition-colors"
+          >
+            <Swords className="w-6 h-6" />
+            <span className="text-[10px] font-semibold">1v1s</span>
+          </button>
+          <button 
+            onClick={() => onNavigate('markets')}
+            className="flex flex-col items-center gap-1 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text transition-colors"
+          >
+            <BarChart3 className="w-6 h-6" />
+            <span className="text-[10px] font-semibold">Markets</span>
+          </button>
+          <button 
+            onClick={() => onNavigate('profile')}
+            className="flex flex-col items-center gap-1 text-brand-blue"
+          >
+            <User className="w-6 h-6 fill-current" />
+            <span className="text-[10px] font-semibold">Profile</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  );
+};
+
+export default ProfileScreen;

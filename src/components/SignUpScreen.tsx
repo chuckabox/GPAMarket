@@ -10,55 +10,55 @@ const SignUpScreen: React.FC<SignUpScreenProps> = ({ onNext, onBack }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="flex flex-col min-h-screen bg-white font-sans max-w-md mx-auto shadow-xl">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl transition-colors duration-200">
       {/* Top Nav */}
-      <div className="flex items-center px-4 py-4 border-b border-slate-100">
+      <div className="flex items-center px-4 py-4 border-b border-slate-100 dark:border-slate-800">
         <button 
           onClick={onBack}
-          className="p-1 rounded hover:bg-slate-100 transition-colors"
+          className="p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
         >
-          <ArrowLeft className="w-6 h-6 text-primary-text" />
+          <ArrowLeft className="w-6 h-6 text-primary-text dark:text-dark-text" />
         </button>
-        <h2 className="flex-1 text-center text-sm font-semibold text-primary-text">Sign Up</h2>
+        <h2 className="flex-1 text-center text-sm font-semibold text-primary-text dark:text-dark-text">Sign Up</h2>
         <div className="w-8" />
       </div>
 
       {/* Content */}
       <div className="flex-1 px-6 pt-10 w-full">
-        <h1 className="text-3xl font-bold tracking-tight text-primary-text mb-2">Create your account</h1>
-        <p className="text-sm text-slate-500 mb-10">Join the academic performance marketplace.</p>
+        <h1 className="text-3xl font-bold tracking-tight text-primary-text dark:text-dark-text mb-2">Create your account</h1>
+        <p className="text-sm text-slate-500 dark:text-dark-muted mb-10">Join the academic performance marketplace.</p>
 
         <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); onNext(); }}>
           <div className="space-y-2">
-            <label className="text-sm font-medium text-primary-text">University Email</label>
+            <label className="text-sm font-medium text-primary-text dark:text-dark-text">University Email</label>
             <input 
               type="email" 
               placeholder="name@university.edu"
-              className="w-full px-3 py-3 rounded border border-slate-200 focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm"
+              className="w-full px-3 py-3 rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm text-primary-text dark:text-dark-text"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-primary-text">Full Name</label>
+            <label className="text-sm font-medium text-primary-text dark:text-dark-text">Full Name</label>
             <input 
               type="text" 
               placeholder="Jane Doe"
-              className="w-full px-3 py-3 rounded border border-slate-200 focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm"
+              className="w-full px-3 py-3 rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm text-primary-text dark:text-dark-text"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-primary-text">Password</label>
+            <label className="text-sm font-medium text-primary-text dark:text-dark-text">Password</label>
             <div className="relative">
               <input 
                 type={showPassword ? "text" : "password"} 
                 placeholder="••••••••"
-                className="w-full px-3 py-3 rounded border border-slate-200 focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm pr-10"
+                className="w-full px-3 py-3 rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm pr-10 text-primary-text dark:text-dark-text"
               />
               <button 
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text"
               >
                 {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
               </button>
@@ -74,14 +74,14 @@ const SignUpScreen: React.FC<SignUpScreenProps> = ({ onNext, onBack }) => {
         </form>
 
         <div className="mt-8 text-center">
-          <p className="text-xs text-slate-500 leading-relaxed">
+          <p className="text-xs text-slate-500 dark:text-dark-muted leading-relaxed">
             By creating an account, you agree to our <br/>
             <a href="#" className="text-brand-blue hover:underline font-medium">Terms of Service</a> and <a href="#" className="text-brand-blue hover:underline font-medium">Privacy Policy</a>.
           </p>
         </div>
 
         <div className="mt-12 text-center pb-8">
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-slate-600 dark:text-dark-muted">
             Already have an account? <a href="#" className="text-brand-blue font-semibold hover:underline">Log in</a>
           </p>
         </div>
@@ -91,8 +91,8 @@ const SignUpScreen: React.FC<SignUpScreenProps> = ({ onNext, onBack }) => {
       <div className="px-6 pb-6 mt-auto">
         <div className="flex gap-1">
           <div className="h-1 flex-1 bg-brand-blue rounded-full" />
-          <div className="h-1 flex-1 bg-slate-100 rounded-full" />
-          <div className="h-1 flex-1 bg-slate-100 rounded-full" />
+          <div className="h-1 flex-1 bg-slate-100 dark:bg-slate-800 rounded-full" />
+          <div className="h-1 flex-1 bg-slate-100 dark:bg-slate-800 rounded-full" />
         </div>
       </div>
     </div>

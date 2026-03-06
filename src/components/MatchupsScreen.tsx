@@ -46,22 +46,22 @@ const MOCK_MATCHUPS = [
 
 const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
   return (
-    <div className="flex flex-col min-h-screen bg-[#f6f6f8] font-sans max-w-md mx-auto shadow-xl relative overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-[#f6f6f8] dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl relative overflow-x-hidden transition-colors duration-200">
       {/* Header */}
-      <header className="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-slate-200">
+      <header className="sticky top-0 z-10 bg-white/80 dark:bg-dark-surface/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
         <div className="flex items-center justify-between px-4 py-4">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-brand-blue flex items-center justify-center text-white">
               <Swords className="w-5 h-5" />
             </div>
-            <h1 className="text-lg font-semibold tracking-tight text-primary-text">1v1 Matchups</h1>
+            <h1 className="text-lg font-semibold tracking-tight text-primary-text dark:text-dark-text">1v1 Matchups</h1>
           </div>
           <div className="flex items-center gap-2">
-            <button className="p-2 rounded-lg hover:bg-slate-100 transition-colors">
-              <Search className="w-5 h-5 text-slate-600" />
+            <button className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+              <Search className="w-5 h-5 text-slate-600 dark:text-dark-muted" />
             </button>
-            <button className="p-2 rounded-lg hover:bg-slate-100 transition-colors">
-              <Filter className="w-5 h-5 text-slate-600" />
+            <button className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+              <Filter className="w-5 h-5 text-slate-600 dark:text-dark-muted" />
             </button>
           </div>
         </div>
@@ -70,36 +70,36 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
         <div className="px-4">
           <div className="flex gap-6 overflow-x-auto no-scrollbar">
             <a className="border-b-2 border-brand-blue py-2 text-sm font-medium text-brand-blue whitespace-nowrap" href="#">Active Challenges</a>
-            <a className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 hover:text-primary-text whitespace-nowrap" href="#">My Duels</a>
-            <a className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 hover:text-primary-text whitespace-nowrap" href="#">Invites</a>
-            <a className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 hover:text-primary-text whitespace-nowrap" href="#">Leaderboard</a>
+            <a className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 dark:text-dark-muted hover:text-primary-text dark:hover:text-dark-text whitespace-nowrap" href="#">My Duels</a>
+            <a className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 dark:text-dark-muted hover:text-primary-text dark:hover:text-dark-text whitespace-nowrap" href="#">Invites</a>
+            <a className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 dark:text-dark-muted hover:text-primary-text dark:hover:text-dark-text whitespace-nowrap" href="#">Leaderboard</a>
           </div>
         </div>
       </header>
 
       {/* List */}
-      <main className="flex-1 flex flex-col divide-y divide-slate-100 bg-white">
+      <main className="flex-1 flex flex-col divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-dark-surface">
         {MOCK_MATCHUPS.map((matchup) => (
-          <div key={matchup.id} className="p-4 hover:bg-slate-50 transition-colors cursor-pointer">
+          <div key={matchup.id} className="p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer">
             <div className="flex items-center justify-between">
               {/* Student A */}
               <div className="flex flex-col items-center w-20">
                 <img 
                   alt={matchup.studentA.name} 
-                  className="w-10 h-10 rounded-full border border-slate-200 bg-slate-100 mb-1 object-cover" 
+                  className="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 mb-1 object-cover" 
                   src={matchup.studentA.avatar}
                   referrerPolicy="no-referrer"
                 />
-                <span className="text-[10px] text-slate-500 font-medium truncate w-full text-center">{matchup.studentA.name}</span>
+                <span className="text-[10px] text-slate-500 dark:text-dark-muted font-medium truncate w-full text-center">{matchup.studentA.name}</span>
               </div>
 
               {/* Match Info */}
               <div className="flex-1 text-center px-2">
-                <h3 className="font-bold text-sm text-primary-text">{matchup.course}</h3>
-                <p className="text-[11px] text-slate-500 mt-1 uppercase tracking-tight font-medium">{matchup.type}</p>
+                <h3 className="font-bold text-sm text-primary-text dark:text-dark-text">{matchup.course}</h3>
+                <p className="text-[11px] text-slate-500 dark:text-dark-muted mt-1 uppercase tracking-tight font-medium">{matchup.type}</p>
                 <div className="mt-2 flex flex-col gap-0.5">
-                  <span className="text-[10px] text-slate-400">Time Left: <span className="text-slate-600 font-medium">{matchup.timeLeft}</span></span>
-                  <span className="text-[10px] text-slate-400">Stake: <span className="text-brand-blue font-semibold">{matchup.stake}</span></span>
+                  <span className="text-[10px] text-slate-400 dark:text-dark-muted">Time Left: <span className="text-slate-600 dark:text-dark-text font-medium">{matchup.timeLeft}</span></span>
+                  <span className="text-[10px] text-slate-400 dark:text-dark-muted">Stake: <span className="text-brand-blue font-semibold">{matchup.stake}</span></span>
                 </div>
               </div>
 
@@ -107,11 +107,11 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
               <div className="flex flex-col items-center w-20">
                 <img 
                   alt={matchup.studentB.name} 
-                  className="w-10 h-10 rounded-full border border-slate-200 bg-slate-100 mb-1 object-cover" 
+                  className="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 mb-1 object-cover" 
                   src={matchup.studentB.avatar}
                   referrerPolicy="no-referrer"
                 />
-                <span className="text-[10px] text-slate-500 font-medium truncate w-full text-center">{matchup.studentB.name}</span>
+                <span className="text-[10px] text-slate-500 dark:text-dark-muted font-medium truncate w-full text-center">{matchup.studentB.name}</span>
               </div>
             </div>
           </div>
@@ -124,11 +124,11 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
       </button>
 
       {/* Bottom Nav */}
-      <nav className="sticky bottom-0 bg-white/95 backdrop-blur-md border-t border-slate-200 pb-8 pt-2">
+      <nav className="sticky bottom-0 bg-white/95 dark:bg-dark-surface/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 pb-8 pt-2">
         <div className="flex justify-around items-center px-4">
           <button 
             onClick={() => onNavigate('leaderboard')}
-            className="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors"
+            className="flex flex-col items-center gap-1 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text transition-colors"
           >
             <Trophy className="w-6 h-6" />
             <span className="text-[10px] font-semibold">Leaderboard</span>
@@ -142,14 +142,14 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
           </button>
           <button 
             onClick={() => onNavigate('markets')}
-            className="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors"
+            className="flex flex-col items-center gap-1 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text transition-colors"
           >
             <BarChart3 className="w-6 h-6" />
             <span className="text-[10px] font-semibold">Markets</span>
           </button>
           <button 
             onClick={() => onNavigate('profile')}
-            className="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors"
+            className="flex flex-col items-center gap-1 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text transition-colors"
           >
             <User className="w-6 h-6" />
             <span className="text-[10px] font-semibold">Profile</span>

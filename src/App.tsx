@@ -6,14 +6,24 @@ import SignUpScreen from './components/SignUpScreen';
 import MarketsScreen from './components/MarketsScreen';
 import PlaceBetScreen from './components/PlaceBetScreen';
 import MatchupsScreen from './components/MatchupsScreen';
+import LeaderboardScreen from './components/LeaderboardScreen';
+import ProfileScreen from './components/ProfileScreen';
+import SettingsScreen from './components/SettingsScreen';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<Screen>('home');
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const handleNavigate = (screen: 'markets' | 'matchups' | 'profile' | 'leaderboard') => {
-    if (screen === 'markets') setCurrentScreen('markets');
-    if (screen === 'matchups') setCurrentScreen('matchups');
-    // Profile and Leaderboard screens not implemented yet, but we can handle the state if needed
+  React.useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
+  const handleNavigate = (screen: 'markets' | 'matchups' | 'profile' | 'leaderboard' | 'settings') => {
+    setCurrentScreen(screen);
   };
 
   return (
@@ -46,6 +56,23 @@ export default function App() {
           {currentScreen === 'matchups' && (
             <MatchupsScreen 
               onNavigate={handleNavigate}
+            />
+          )}
+          {currentScreen === 'leaderboard' && (
+            <LeaderboardScreen 
+              onNavigate={handleNavigate}
+            />
+          )}
+          {currentScreen === 'profile' && (
+            <ProfileScreen 
+              onNavigate={handleNavigate}
+            />
+          )}
+          {currentScreen === 'settings' && (
+            <SettingsScreen 
+              onBack={() => setCurrentScreen('profile')}
+              isDarkMode={isDarkMode}
+              onToggleDarkMode={() => setIsDarkMode(!isDarkMode)}
             />
           )}
           {currentScreen === 'bet' && (

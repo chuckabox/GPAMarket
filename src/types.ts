@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type Screen = 'home' | 'signup' | 'markets' | 'bet' | 'matchups';
+export type Screen = 'home' | 'signup' | 'markets' | 'bet' | 'matchups' | 'leaderboard' | 'profile' | 'settings';
 
 export interface Market {
   id: string;
