@@ -20,28 +20,22 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigat
             <h1 className="text-lg font-semibold tracking-tight text-primary-text dark:text-dark-text">Available Markets</h1>
           </div>
           <div className="flex items-center gap-2">
-            <button className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
               <Search className="w-5 h-5 text-slate-600 dark:text-dark-muted" />
             </button>
             {/* Profile icon removed from here */}
           </div>
         </div>
-
-        {/* Tabs */}
-        <div className="px-4 flex gap-6 overflow-x-auto no-scrollbar">
-          <a href="#" className="border-b-2 border-brand-blue py-2 text-sm font-medium text-brand-blue whitespace-nowrap">All Markets</a>
-        </div>
       </header>
 
       {/* Filters */}
       <div className="flex gap-2 p-4 overflow-x-auto no-scrollbar bg-slate-50 dark:bg-dark-bg">
-        <button className="flex h-8 shrink-0 items-center gap-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface px-3 text-xs font-medium text-slate-700 dark:text-dark-text">
+        <button className="flex h-8 shrink-0 items-center gap-2 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface px-4 text-xs font-medium text-slate-700 dark:text-dark-text">
           Status: Open <ChevronDown className="w-3 h-3" />
         </button>
-        <button className="flex h-8 shrink-0 items-center gap-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface px-3 text-xs font-medium text-slate-700 dark:text-dark-text">
+        <button className="flex h-8 shrink-0 items-center gap-2 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface px-4 text-xs font-medium text-slate-700 dark:text-dark-text">
           Department <ChevronDown className="w-3 h-3" />
         </button>
-        {/* Volatility dropdown removed from here */}
       </div>
 
       {/* List */}
@@ -57,10 +51,10 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigat
                 {market.icon}
                 <h3 className="font-medium text-sm text-primary-text dark:text-dark-text">{market.course}</h3>
               </div>
-              <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${
+              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
                 market.status === 'ACTIVE' 
-                  ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 border-green-100 dark:border-green-900/30' 
-                  : 'bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-dark-muted border-slate-200 dark:border-slate-700'
+                  ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400' 
+                  : 'bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-dark-muted'
               }`}>
                 {market.status}
               </span>
@@ -69,10 +63,10 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigat
               <div className="space-y-1">
                 <p className="text-xs text-slate-500 dark:text-dark-muted">Target Grade: {market.targetGrade} • {market.examType}</p>
                 <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-1 text-[11px] font-medium text-slate-600 dark:text-dark-text bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">
+                  <div className="flex items-center gap-1 text-[11px] font-medium text-slate-600 dark:text-dark-text bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-full">
                     <User className="w-3 h-3" /> {market.participants} Participants
                   </div>
-                  <div className="flex items-center gap-1 text-[11px] font-medium text-slate-600 dark:text-dark-text bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">
+                  <div className="flex items-center gap-1 text-[11px] font-medium text-slate-600 dark:text-dark-text bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-full">
                     <Plus className="w-3 h-3" /> {market.timeLeft}
                   </div>
                 </div>

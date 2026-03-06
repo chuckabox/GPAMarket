@@ -46,7 +46,7 @@ const MOCK_MATCHUPS = [
 
 const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
   return (
-    <div className="flex flex-col min-h-screen bg-[#f6f6f8] dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl relative overflow-x-hidden transition-colors duration-200">
+    <div className="flex flex-col h-screen bg-[#f6f6f8] dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl relative overflow-hidden transition-colors duration-200">
       {/* Header */}
       <header className="sticky top-0 z-10 bg-white/80 dark:bg-dark-surface/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
         <div className="flex items-center justify-between px-4 py-4">
@@ -57,10 +57,10 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
             <h1 className="text-lg font-semibold tracking-tight text-primary-text dark:text-dark-text">1v1 Matchups</h1>
           </div>
           <div className="flex items-center gap-2">
-            <button className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
               <Search className="w-5 h-5 text-slate-600 dark:text-dark-muted" />
             </button>
-            <button className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
               <Filter className="w-5 h-5 text-slate-600 dark:text-dark-muted" />
             </button>
           </div>
@@ -78,7 +78,7 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
       </header>
 
       {/* List */}
-      <main className="flex-1 flex flex-col divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-dark-surface">
+      <main className="flex-1 flex flex-col divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-dark-surface overflow-y-auto no-scrollbar">
         {MOCK_MATCHUPS.map((matchup) => (
           <div key={matchup.id} className="p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer">
             <div className="flex items-center justify-between">
@@ -113,6 +113,29 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
                 />
                 <span className="text-[10px] text-slate-500 dark:text-dark-muted font-medium truncate w-full text-center">{matchup.studentB.name}</span>
               </div>
+            </div>
+
+            {/* Emoji Reactions */}
+            <div className="mt-4 flex items-center gap-2 overflow-x-auto no-scrollbar">
+              <button className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-blue transition-colors group">
+                <span className="text-xs">🔥</span>
+                <span className="text-[10px] font-bold text-slate-600 dark:text-dark-muted group-hover:text-brand-blue">12</span>
+              </button>
+              <button className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-blue transition-colors group">
+                <span className="text-xs">😮</span>
+                <span className="text-[10px] font-bold text-slate-600 dark:text-dark-muted group-hover:text-brand-blue">5</span>
+              </button>
+              <button className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-blue transition-colors group">
+                <span className="text-xs">🚀</span>
+                <span className="text-[10px] font-bold text-slate-600 dark:text-dark-muted group-hover:text-brand-blue">8</span>
+              </button>
+              <button className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-blue transition-colors group">
+                <span className="text-xs">👏</span>
+                <span className="text-[10px] font-bold text-slate-600 dark:text-dark-muted group-hover:text-brand-blue">3</span>
+              </button>
+              <button className="flex items-center justify-center w-7 h-7 rounded-full bg-slate-50 dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-700 text-slate-400 hover:text-brand-blue hover:border-brand-blue transition-colors">
+                <Plus className="w-3.5 h-3.5" />
+              </button>
             </div>
           </div>
         ))}

@@ -33,8 +33,9 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigate }) => {
             <h2 className="text-xl font-bold text-primary-text dark:text-dark-text">Peter C.</h2>
             <p className="text-sm text-slate-500 dark:text-dark-muted font-medium">University of Queensland</p>
             <div className="mt-2 flex items-center gap-2">
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-blue text-white uppercase tracking-wider">Level 12</span>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-dark-muted uppercase tracking-wider">Scholar</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-blue text-white uppercase tracking-wider">2nd Year</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-dark-muted uppercase tracking-wider">Comp Sci</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Verified</span>
             </div>
           </div>
         </div>
@@ -47,8 +48,8 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigate }) => {
           <p className="text-xl font-black text-primary-text dark:text-dark-text mt-1">$1,240.50</p>
         </div>
         <div className="bg-white dark:bg-dark-surface p-4 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
-          <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider">Win Rate</span>
-          <p className="text-xl font-black text-green-600 mt-1">68.4%</p>
+          <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider">Total Games</span>
+          <p className="text-xl font-black text-primary-text dark:text-dark-text mt-1">82</p>
         </div>
       </div>
 
@@ -57,7 +58,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigate }) => {
         <div className="bg-white dark:bg-dark-surface rounded-2xl border border-slate-100 dark:border-slate-800 divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden shadow-sm">
           <button className="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-brand-blue/10 dark:bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+              <div className="w-8 h-8 rounded-full bg-brand-blue/10 dark:bg-brand-blue/20 flex items-center justify-center text-brand-blue">
                 <Trophy className="w-4 h-4" />
               </div>
               <span className="text-sm font-bold text-primary-text dark:text-dark-text">My Achievements</span>
@@ -66,7 +67,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigate }) => {
           </button>
           <button className="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-brand-blue/10 dark:bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+              <div className="w-8 h-8 rounded-full bg-brand-blue/10 dark:bg-brand-blue/20 flex items-center justify-center text-brand-blue">
                 <BarChart3 className="w-4 h-4" />
               </div>
               <span className="text-sm font-bold text-primary-text dark:text-dark-text">Betting History</span>
@@ -75,7 +76,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigate }) => {
           </button>
           <button className="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-brand-blue/10 dark:bg-brand-blue/20 flex items-center justify-center text-brand-blue">
+              <div className="w-8 h-8 rounded-full bg-brand-blue/10 dark:bg-brand-blue/20 flex items-center justify-center text-brand-blue">
                 <Swords className="w-4 h-4" />
               </div>
               <span className="text-sm font-bold text-primary-text dark:text-dark-text">Duel Statistics</span>
@@ -84,7 +85,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigate }) => {
           </button>
           <button className="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-red-500">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-red-50 dark:bg-red-900/20 flex items-center justify-center">
                 <LogOut className="w-4 h-4" />
               </div>
               <span className="text-sm font-bold">Log Out</span>

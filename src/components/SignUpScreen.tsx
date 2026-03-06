@@ -24,41 +24,41 @@ const SignUpScreen: React.FC<SignUpScreenProps> = ({ onNext, onBack }) => {
       </div>
 
       {/* Content */}
-      <div className="flex-1 px-6 pt-10 w-full">
+      <div className="flex-1 px-6 pt-10 w-full text-center">
         <h1 className="text-3xl font-bold tracking-tight text-primary-text dark:text-dark-text mb-2">Create your account</h1>
         <p className="text-sm text-slate-500 dark:text-dark-muted mb-10">Join the academic performance marketplace.</p>
 
-        <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); onNext(); }}>
+        <form className="space-y-6 text-left" onSubmit={(e) => { e.preventDefault(); onNext(); }}>
           <div className="space-y-2">
-            <label className="text-sm font-medium text-primary-text dark:text-dark-text">University Email</label>
+            <label className="text-sm font-medium text-primary-text dark:text-dark-text ml-4">University Email</label>
             <input 
               type="email" 
               placeholder="name@university.edu"
-              className="w-full px-3 py-3 rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm text-primary-text dark:text-dark-text"
+              className="w-full px-5 py-3 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm text-primary-text dark:text-dark-text"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-primary-text dark:text-dark-text">Full Name</label>
+            <label className="text-sm font-medium text-primary-text dark:text-dark-text ml-4">Full Name</label>
             <input 
               type="text" 
               placeholder="Jane Doe"
-              className="w-full px-3 py-3 rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm text-primary-text dark:text-dark-text"
+              className="w-full px-5 py-3 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm text-primary-text dark:text-dark-text"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-primary-text dark:text-dark-text">Password</label>
+            <label className="text-sm font-medium text-primary-text dark:text-dark-text ml-4">Password</label>
             <div className="relative">
               <input 
                 type={showPassword ? "text" : "password"} 
                 placeholder="••••••••"
-                className="w-full px-3 py-3 rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm pr-10 text-primary-text dark:text-dark-text"
+                className="w-full px-5 py-3 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm pr-12 text-primary-text dark:text-dark-text"
               />
               <button 
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text"
               >
                 {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
               </button>
@@ -67,7 +67,7 @@ const SignUpScreen: React.FC<SignUpScreenProps> = ({ onNext, onBack }) => {
 
           <button 
             type="submit"
-            className="w-full bg-brand-blue hover:opacity-90 text-white font-semibold py-3.5 rounded transition-colors text-sm shadow-sm mt-4"
+            className="w-full bg-brand-blue hover:opacity-90 text-white font-semibold py-3.5 rounded-full transition-all hover:scale-[1.02] active:scale-[0.98] text-sm shadow-lg shadow-brand-blue/20 mt-4"
           >
             Create account
           </button>
@@ -84,15 +84,6 @@ const SignUpScreen: React.FC<SignUpScreenProps> = ({ onNext, onBack }) => {
           <p className="text-sm text-slate-600 dark:text-dark-muted">
             Already have an account? <a href="#" className="text-brand-blue font-semibold hover:underline">Log in</a>
           </p>
-        </div>
-      </div>
-
-      {/* Progress */}
-      <div className="px-6 pb-6 mt-auto">
-        <div className="flex gap-1">
-          <div className="h-1 flex-1 bg-brand-blue rounded-full" />
-          <div className="h-1 flex-1 bg-slate-100 dark:bg-slate-800 rounded-full" />
-          <div className="h-1 flex-1 bg-slate-100 dark:bg-slate-800 rounded-full" />
         </div>
       </div>
     </div>

@@ -54,12 +54,12 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
               <label className="text-sm font-semibold text-slate-700 dark:text-dark-text">Target Grade</label>
               <span className="text-xs text-slate-400 dark:text-dark-muted">Pick final course outcome</span>
             </div>
-            <div className="grid grid-cols-7 gap-1.5 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div className="grid grid-cols-7 gap-1.5 p-1.5 bg-slate-100 dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700">
               {["1", "2", "3", "4", "5", "6", "7"].map((grade) => (
                 <button
                   key={grade}
                   onClick={() => setSelectedGrade(grade)}
-                  className={`flex items-center justify-center h-11 rounded-lg text-sm font-bold transition-all ${
+                  className={`flex items-center justify-center h-10 rounded-full text-sm font-bold transition-all ${
                     selectedGrade === grade 
                       ? 'bg-white dark:bg-dark-surface text-brand-blue shadow-sm' 
                       : 'text-slate-500 dark:text-dark-muted hover:text-slate-700 dark:hover:text-dark-text'
@@ -82,14 +82,14 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
                 type="number" 
                 value={wager}
                 onChange={(e) => setWager(e.target.value)}
-                className="w-full bg-white dark:bg-dark-surface border border-slate-200 dark:border-slate-800 rounded-xl py-4 pl-10 pr-4 text-2xl font-bold tracking-tight text-primary-text dark:text-dark-text focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none transition-all"
+                className="w-full bg-white dark:bg-dark-surface border border-slate-200 dark:border-slate-800 rounded-full py-4 pl-10 pr-6 text-2xl font-bold tracking-tight text-primary-text dark:text-dark-text focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none transition-all"
                 placeholder="0.00"
               />
             </div>
             <div className="flex gap-2 mt-4">
-              <button onClick={() => setWager("10.00")} className="flex-1 py-2 rounded-lg border border-slate-200 dark:border-slate-800 text-[13px] font-medium text-slate-600 dark:text-dark-text bg-white dark:bg-dark-surface hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Min $10</button>
-              <button onClick={() => setWager("100.00")} className="flex-1 py-2 rounded-lg border border-slate-200 dark:border-slate-800 text-[13px] font-medium text-slate-600 dark:text-dark-text bg-white dark:bg-dark-surface hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">$100</button>
-              <button onClick={() => setWager("500.00")} className="flex-1 py-2 rounded-lg border border-slate-200 dark:border-slate-800 text-[13px] font-medium text-slate-600 dark:text-dark-text bg-white dark:bg-dark-surface hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Max $500</button>
+              <button onClick={() => setWager("10.00")} className="flex-1 py-2 rounded-full border border-slate-200 dark:border-slate-800 text-[13px] font-medium text-slate-600 dark:text-dark-text bg-white dark:bg-dark-surface hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Min $10</button>
+              <button onClick={() => setWager("100.00")} className="flex-1 py-2 rounded-full border border-slate-200 dark:border-slate-800 text-[13px] font-medium text-slate-600 dark:text-dark-text bg-white dark:bg-dark-surface hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">$100</button>
+              <button onClick={() => setWager("500.00")} className="flex-1 py-2 rounded-full border border-slate-200 dark:border-slate-800 text-[13px] font-medium text-slate-600 dark:text-dark-text bg-white dark:bg-dark-surface hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Max $500</button>
             </div>
           </section>
 
@@ -132,7 +132,7 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
 
       {/* Footer */}
       <footer className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white/80 dark:bg-dark-surface/80 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 p-4 pb-8">
-        <button className="w-full bg-brand-blue hover:opacity-90 text-white font-bold py-4 rounded-xl shadow-lg shadow-brand-blue/20 transition-all flex items-center justify-center gap-2">
+        <button className="w-full bg-brand-blue hover:opacity-90 text-white font-bold py-4 rounded-full shadow-lg shadow-brand-blue/20 transition-all flex items-center justify-center gap-2">
           <span>Confirm Wager</span>
           <ArrowRight className="w-5 h-5" />
         </button>

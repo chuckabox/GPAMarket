@@ -70,7 +70,7 @@ const LeaderboardScreen: React.FC<LeaderboardScreenProps> = ({ onNavigate }) => 
       <header className="sticky top-0 z-10 bg-white/80 dark:bg-dark-surface/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
         <div className="flex items-center justify-between px-4 py-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-brand-blue flex items-center justify-center text-white">
+            <div className="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center text-white">
               <Trophy className="w-5 h-5" />
             </div>
             <h1 className="text-lg font-semibold tracking-tight text-primary-text dark:text-dark-text">Global Leaderboard</h1>
@@ -79,15 +79,15 @@ const LeaderboardScreen: React.FC<LeaderboardScreenProps> = ({ onNavigate }) => 
 
         {/* Stats Summary */}
         <div className="px-4 pb-4">
-          <div className="bg-brand-blue/5 dark:bg-brand-blue/10 rounded-xl p-4 flex justify-between items-center border border-brand-blue/10 dark:border-brand-blue/20">
+          <div className="bg-brand-blue/5 dark:bg-brand-blue/10 rounded-2xl p-4 flex justify-between items-center border border-brand-blue/10 dark:border-brand-blue/20">
             <div className="flex flex-col">
               <span className="text-[10px] font-bold text-brand-blue uppercase tracking-wider">Your Rank</span>
               <span className="text-2xl font-black text-primary-text dark:text-dark-text">#124</span>
             </div>
             <div className="h-8 w-px bg-brand-blue/20" />
             <div className="flex flex-col text-right">
-              <span className="text-[10px] font-bold text-brand-blue uppercase tracking-wider">Win Rate</span>
-              <span className="text-2xl font-black text-primary-text dark:text-dark-text">64%</span>
+              <span className="text-[10px] font-bold text-brand-blue uppercase tracking-wider">Total Games</span>
+              <span className="text-2xl font-black text-primary-text dark:text-dark-text">156</span>
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@ const LeaderboardScreen: React.FC<LeaderboardScreenProps> = ({ onNavigate }) => 
       <main className="flex-1 flex flex-col divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-dark-surface">
         <div className="px-4 py-2 bg-slate-50 dark:bg-dark-bg flex justify-between items-center">
           <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider">Student</span>
-          <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider">Win Rate / Record</span>
+          <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider">Total Games / Record</span>
         </div>
         {sortedLeaderboard.map((user, index) => {
           const winRate = Math.round((user.wins / (user.wins + user.losses)) * 100);
@@ -134,10 +134,9 @@ const LeaderboardScreen: React.FC<LeaderboardScreenProps> = ({ onNavigate }) => 
 
               <div className="text-right">
                 <div className="flex items-center justify-end gap-1">
-                  <span className={`text-sm font-black ${winRate > 60 ? 'text-green-600 dark:text-green-400' : 'text-slate-600 dark:text-dark-muted'}`}>
-                    {winRate}%
+                  <span className="text-sm font-black text-primary-text dark:text-dark-text">
+                    {user.wins + user.losses}
                   </span>
-                  {winRate > 60 ? <TrendingUp className="w-3 h-3 text-green-600 dark:text-green-400" /> : <TrendingDown className="w-3 h-3 text-slate-400 dark:text-dark-muted" />}
                 </div>
                 <p className="text-[10px] text-slate-400 dark:text-dark-muted font-bold uppercase tracking-tighter">
                   {user.wins}W - {user.losses}L
