@@ -14,10 +14,10 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigat
       <header className="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-slate-100">
         <div className="flex items-center justify-between px-4 py-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+            <div className="w-8 h-8 rounded-lg bg-brand-blue flex items-center justify-center text-white">
               <BarChart3 className="w-5 h-5" />
             </div>
-            <h1 className="text-lg font-semibold tracking-tight text-slate-900">Available Markets</h1>
+            <h1 className="text-lg font-semibold tracking-tight text-primary-text">Available Markets</h1>
           </div>
           <div className="flex items-center gap-2">
             <button className="p-2 rounded-lg hover:bg-slate-100 transition-colors">
@@ -29,7 +29,7 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigat
 
         {/* Tabs */}
         <div className="px-4 flex gap-6 overflow-x-auto no-scrollbar">
-          <a href="#" className="border-b-2 border-blue-600 py-2 text-sm font-medium text-blue-600 whitespace-nowrap">All Markets</a>
+          <a href="#" className="border-b-2 border-brand-blue py-2 text-sm font-medium text-brand-blue whitespace-nowrap">All Markets</a>
         </div>
       </header>
 
@@ -55,7 +55,7 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigat
             <div className="flex justify-between items-start mb-1">
               <div className="flex items-center gap-2">
                 {market.icon}
-                <h3 className="font-medium text-sm text-slate-900">{market.course}</h3>
+                <h3 className="font-medium text-sm text-primary-text">{market.course}</h3>
               </div>
               <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${
                 market.status === 'ACTIVE' 
@@ -79,7 +79,7 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigat
               </div>
               <div className="text-right">
                 <p className="text-[10px] uppercase tracking-wider font-bold text-slate-400 mb-0.5">Current Odds</p>
-                <p className="text-lg font-bold text-slate-900 leading-none">{market.odds}</p>
+                <p className="text-lg font-bold text-primary-text leading-none">{market.odds}</p>
               </div>
             </div>
           </div>
@@ -87,7 +87,7 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigat
       </main>
 
       {/* FAB */}
-      <button className="fixed bottom-24 right-6 w-12 h-12 rounded-full bg-blue-600 text-white shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-transform z-20">
+      <button className="fixed bottom-24 right-6 w-12 h-12 rounded-full bg-brand-blue text-white shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-transform z-20">
         <Plus className="w-6 h-6" />
       </button>
 
@@ -110,7 +110,7 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigat
           </button>
           <button 
             onClick={() => onNavigate('markets')}
-            className="flex flex-col items-center gap-1 text-blue-600"
+            className="flex flex-col items-center gap-1 text-brand-blue"
           >
             <BarChart3 className="w-6 h-6 fill-current" />
             <span className="text-[10px] font-semibold">Markets</span>

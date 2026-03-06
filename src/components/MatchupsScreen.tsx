@@ -51,10 +51,10 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
       <header className="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div className="flex items-center justify-between px-4 py-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#195de6] flex items-center justify-center text-white">
+            <div className="w-8 h-8 rounded-lg bg-brand-blue flex items-center justify-center text-white">
               <Swords className="w-5 h-5" />
             </div>
-            <h1 className="text-lg font-semibold tracking-tight text-slate-900">1v1 Matchups</h1>
+            <h1 className="text-lg font-semibold tracking-tight text-primary-text">1v1 Matchups</h1>
           </div>
           <div className="flex items-center gap-2">
             <button className="p-2 rounded-lg hover:bg-slate-100 transition-colors">
@@ -69,10 +69,10 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
         {/* Tabs */}
         <div className="px-4">
           <div className="flex gap-6 overflow-x-auto no-scrollbar">
-            <a className="border-b-2 border-[#195de6] py-2 text-sm font-medium text-[#195de6] whitespace-nowrap" href="#">Active Challenges</a>
-            <a className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 hover:text-slate-900 whitespace-nowrap" href="#">My Duels</a>
-            <a className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 hover:text-slate-900 whitespace-nowrap" href="#">Invites</a>
-            <a className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 hover:text-slate-900 whitespace-nowrap" href="#">Leaderboard</a>
+            <a className="border-b-2 border-brand-blue py-2 text-sm font-medium text-brand-blue whitespace-nowrap" href="#">Active Challenges</a>
+            <a className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 hover:text-primary-text whitespace-nowrap" href="#">My Duels</a>
+            <a className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 hover:text-primary-text whitespace-nowrap" href="#">Invites</a>
+            <a className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 hover:text-primary-text whitespace-nowrap" href="#">Leaderboard</a>
           </div>
         </div>
       </header>
@@ -95,11 +95,11 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
 
               {/* Match Info */}
               <div className="flex-1 text-center px-2">
-                <h3 className="font-bold text-sm text-slate-900">{matchup.course}</h3>
+                <h3 className="font-bold text-sm text-primary-text">{matchup.course}</h3>
                 <p className="text-[11px] text-slate-500 mt-1 uppercase tracking-tight font-medium">{matchup.type}</p>
                 <div className="mt-2 flex flex-col gap-0.5">
                   <span className="text-[10px] text-slate-400">Time Left: <span className="text-slate-600 font-medium">{matchup.timeLeft}</span></span>
-                  <span className="text-[10px] text-slate-400">Stake: <span className="text-[#195de6] font-semibold">{matchup.stake}</span></span>
+                  <span className="text-[10px] text-slate-400">Stake: <span className="text-brand-blue font-semibold">{matchup.stake}</span></span>
                 </div>
               </div>
 
@@ -119,7 +119,7 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
       </main>
 
       {/* FAB */}
-      <button className="fixed bottom-24 right-6 w-12 h-12 rounded-full bg-[#195de6] text-white shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-transform z-20">
+      <button className="fixed bottom-24 right-6 w-12 h-12 rounded-full bg-brand-blue text-white shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-transform z-20">
         <ShieldAlert className="w-6 h-6" />
       </button>
 
@@ -135,7 +135,7 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
           </button>
           <button 
             onClick={() => onNavigate('matchups')}
-            className="flex flex-col items-center gap-1 text-[#195de6]"
+            className="flex flex-col items-center gap-1 text-brand-blue"
           >
             <Swords className="w-6 h-6 fill-current" />
             <span className="text-[10px] font-semibold">1v1s</span>

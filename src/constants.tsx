@@ -12,7 +12,7 @@ export const MOCK_MARKETS: Market[] = [
     timeLeft: '2d left',
     status: 'ACTIVE',
     odds: '1.25x',
-    icon: <Terminal className="w-4 h-4 text-blue-600" />
+    icon: <Terminal className="w-4 h-4 text-brand-blue" />
   },
   {
     id: '2',
@@ -23,7 +23,7 @@ export const MOCK_MARKETS: Market[] = [
     timeLeft: 'High Vol',
     status: 'CLOSING',
     odds: '3.40x',
-    icon: <FlaskConical className="w-4 h-4 text-blue-600" />
+    icon: <FlaskConical className="w-4 h-4 text-brand-blue" />
   },
   {
     id: '3',
@@ -34,7 +34,7 @@ export const MOCK_MARKETS: Market[] = [
     timeLeft: '5d left',
     status: 'ACTIVE',
     odds: '1.95x',
-    icon: <History className="w-4 h-4 text-blue-600" />
+    icon: <History className="w-4 h-4 text-brand-blue" />
   },
   {
     id: '4',
@@ -45,7 +45,7 @@ export const MOCK_MARKETS: Market[] = [
     timeLeft: '12h left',
     status: 'ACTIVE',
     odds: '2.10x',
-    icon: <Calculator className="w-4 h-4 text-blue-600" />
+    icon: <Calculator className="w-4 h-4 text-brand-blue" />
   },
   {
     id: '5',
@@ -56,6 +56,6 @@ export const MOCK_MARKETS: Market[] = [
     timeLeft: 'Locked',
     status: 'PAUSED',
     odds: '1.15x',
-    icon: <Brain className="w-4 h-4 text-blue-600" />
+    icon: <Brain className="w-4 h-4 text-brand-blue" />
   }
 ];

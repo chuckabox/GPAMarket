@@ -19,7 +19,7 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
-        <h1 className="text-slate-900 text-[15px] font-semibold tracking-tight">Place Academic Bet</h1>
+        <h1 className="text-primary-text text-[15px] font-semibold tracking-tight">Place Academic Bet</h1>
         <div className="w-10" />
       </header>
 
@@ -37,10 +37,10 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
               <div className="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-green-500 border-2 border-white" />
             </div>
             <div className="flex flex-col">
-              <p className="text-xl font-bold tracking-tight text-slate-900">Alex Rivers</p>
+              <p className="text-xl font-bold tracking-tight text-primary-text">Alex Rivers</p>
               <p className="text-[13px] text-slate-500 font-medium">Advanced Mathematics (MATH301)</p>
               <div className="flex items-center gap-1.5 mt-1">
-                <span className="text-[11px] px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 font-semibold uppercase tracking-wider">Top 5% Student</span>
+                <span className="text-[11px] px-2 py-0.5 rounded-full bg-brand-blue/10 text-brand-blue font-semibold uppercase tracking-wider">Top 5% Student</span>
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
                   onClick={() => setSelectedGrade(grade)}
                   className={`flex items-center justify-center h-11 rounded-lg text-sm font-bold transition-all ${
                     selectedGrade === grade 
-                      ? 'bg-white text-blue-600 shadow-sm' 
+                      ? 'bg-white text-brand-blue shadow-sm' 
                       : 'text-slate-500 hover:text-slate-700'
                   }`}
                 >
@@ -82,7 +82,7 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
                 type="number" 
                 value={wager}
                 onChange={(e) => setWager(e.target.value)}
-                className="w-full bg-white border border-slate-200 rounded-xl py-4 pl-10 pr-4 text-2xl font-bold tracking-tight text-slate-900 focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 outline-none transition-all"
+                className="w-full bg-white border border-slate-200 rounded-xl py-4 pl-10 pr-4 text-2xl font-bold tracking-tight text-primary-text focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none transition-all"
                 placeholder="0.00"
               />
             </div>
@@ -94,7 +94,7 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
           </section>
 
           {/* Summary */}
-          <section className="bg-blue-50/30 border border-blue-100 rounded-xl p-5">
+          <section className="bg-brand-blue/5 border border-brand-blue/10 rounded-xl p-5">
             <div className="flex flex-col gap-3">
               <div className="flex justify-between items-center text-sm">
                 <span className="text-slate-500">Winning Probability</span>
@@ -107,8 +107,8 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
               <div className="h-px bg-slate-200 my-1" />
               <div className="flex justify-between items-end">
                 <div className="flex flex-col">
-                  <span className="text-[12px] font-bold text-blue-600 uppercase tracking-wider">Potential Payout</span>
-                  <span className="text-3xl font-black tracking-tight text-slate-900 leading-none mt-1">
+                  <span className="text-[12px] font-bold text-brand-blue uppercase tracking-wider">Potential Payout</span>
+                  <span className="text-3xl font-black tracking-tight text-primary-text leading-none mt-1">
                     ${(parseFloat(wager || "0") * 4.25).toFixed(2)}
                   </span>
                 </div>
@@ -132,7 +132,7 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
 
       {/* Footer */}
       <footer className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white/80 backdrop-blur-xl border-t border-slate-200 p-4 pb-8">
-        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-600/20 transition-all flex items-center justify-center gap-2">
+        <button className="w-full bg-brand-blue hover:opacity-90 text-white font-bold py-4 rounded-xl shadow-lg shadow-brand-blue/20 transition-all flex items-center justify-center gap-2">
           <span>Confirm Wager</span>
           <ArrowRight className="w-5 h-5" />
         </button>

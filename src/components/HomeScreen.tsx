@@ -11,10 +11,10 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onGetStarted }) => {
       {/* Header / Logo */}
       <header className="flex items-center justify-between px-6 py-8">
         <div className="flex items-center gap-2">
-          <div className="bg-[#1e293b] flex size-8 items-center justify-center rounded">
+          <div className="bg-brand-blue flex size-8 items-center justify-center rounded">
             <BarChart3 className="text-white w-5 h-5" />
           </div>
-          <span className="text-xl font-bold tracking-tight text-slate-900">GPAMarket</span>
+          <span className="text-xl font-bold tracking-tight text-primary-text">GPAMarket</span>
         </div>
       </header>
 
@@ -22,7 +22,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onGetStarted }) => {
       <main className="flex flex-1 flex-col items-center justify-center px-8 text-center">
         {/* Hero Text */}
         <div className="max-w-[320px] space-y-4">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 leading-[1.15]">
+          <h1 className="text-3xl font-bold tracking-tight text-primary-text leading-[1.15]">
             The academic prediction platform for students.
           </h1>
           <p className="text-slate-500 text-sm leading-relaxed">
@@ -34,7 +34,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onGetStarted }) => {
         <div className="mt-12 flex w-full max-w-[300px] flex-col gap-3">
           <button 
             onClick={onGetStarted}
-            className="flex h-12 w-full items-center justify-center bg-[#1e293b] text-sm font-semibold text-white transition-opacity active:opacity-90 rounded"
+            className="flex h-12 w-full items-center justify-center bg-brand-blue text-sm font-semibold text-white transition-opacity active:opacity-90 rounded"
           >
             Get Started
           </button>

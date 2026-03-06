@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary-text: #2E4057;
+  --color-brand-blue: #048BA8;
+}
+
+@layer base {
+  body {
+    @apply text-primary-text;
+  }
+}
