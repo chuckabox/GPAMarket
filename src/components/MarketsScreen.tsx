@@ -29,9 +29,6 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket }) => {
         {/* Tabs */}
         <div className="px-4 flex gap-6 overflow-x-auto no-scrollbar">
           <a href="#" className="border-b-2 border-blue-600 py-2 text-sm font-medium text-blue-600 whitespace-nowrap">All Markets</a>
-          <a href="#" className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 hover:text-slate-900 whitespace-nowrap">My Courses</a>
-          <a href="#" className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 hover:text-slate-900 whitespace-nowrap">Watchlist</a>
-          <a href="#" className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 hover:text-slate-900 whitespace-nowrap">History</a>
         </div>
       </header>
 
