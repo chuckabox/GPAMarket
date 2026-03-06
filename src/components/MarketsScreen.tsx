@@ -92,7 +92,7 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigat
       </button>
 
       {/* Bottom Nav */}
-      <nav className="sticky bottom-0 bg-white/95 dark:bg-dark-surface/95 backdrop-blur-md border-t border-slate-100 dark:border-slate-800 pb-8 pt-2">
+      <nav className="sticky bottom-0 bg-white/95 dark:bg-dark-surface/95 backdrop-blur-md border-t border-slate-100 dark:border-slate-800 py-5">
         <div className="flex justify-around items-center px-4">
           <button 
             onClick={() => onNavigate('leaderboard')}
