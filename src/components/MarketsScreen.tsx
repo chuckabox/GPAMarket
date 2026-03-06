@@ -1,12 +1,13 @@
 import React from 'react';
-import { Search, ChevronDown, Plus, BarChart3, Trophy, User } from 'lucide-react';
+import { Search, ChevronDown, Plus, BarChart3, Trophy, User, Swords } from 'lucide-react';
 import { MOCK_MARKETS } from '../constants';
 
 interface MarketsScreenProps {
   onSelectMarket: () => void;
+  onNavigate: (screen: 'markets' | 'matchups' | 'profile' | 'leaderboard') => void;
 }
 
-const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket }) => {
+const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigate }) => {
   return (
     <div className="flex flex-col min-h-screen bg-white font-sans max-w-md mx-auto shadow-xl relative">
       {/* Header */}
@@ -93,18 +94,34 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket }) => {
       {/* Bottom Nav */}
       <nav className="sticky bottom-0 bg-white/95 backdrop-blur-md border-t border-slate-100 pb-8 pt-2">
         <div className="flex justify-around items-center px-4">
-          <a href="#" className="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600">
+          <button 
+            onClick={() => onNavigate('leaderboard')}
+            className="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors"
+          >
             <Trophy className="w-6 h-6" />
             <span className="text-[10px] font-semibold">Leaderboard</span>
-          </a>
-          <a href="#" className="flex flex-col items-center gap-1 text-blue-600">
-            <BarChart3 className="w-6 h-6" />
+          </button>
+          <button 
+            onClick={() => onNavigate('matchups')}
+            className="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors"
+          >
+            <Swords className="w-6 h-6" />
+            <span className="text-[10px] font-semibold">1v1s</span>
+          </button>
+          <button 
+            onClick={() => onNavigate('markets')}
+            className="flex flex-col items-center gap-1 text-blue-600"
+          >
+            <BarChart3 className="w-6 h-6 fill-current" />
             <span className="text-[10px] font-semibold">Markets</span>
-          </a>
-          <a href="#" className="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600">
+          </button>
+          <button 
+            onClick={() => onNavigate('profile')}
+            className="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors"
+          >
             <User className="w-6 h-6" />
             <span className="text-[10px] font-semibold">Profile</span>
-          </a>
+          </button>
         </div>
       </nav>
     </div>
