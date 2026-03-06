@@ -21,8 +21,7 @@ export default function App() {
         >
           {currentScreen === 'home' && (
             <HomeScreen 
-              onSignUp={() => setCurrentScreen('signup')} 
-              onLogIn={() => setCurrentScreen('markets')} 
+              onGetStarted={() => setCurrentScreen('signup')} 
             />
           )}
           {currentScreen === 'signup' && (

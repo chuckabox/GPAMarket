@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, UserCircle, ChevronDown, Plus, BarChart3, Wallet, History, User } from 'lucide-react';
+import { Search, ChevronDown, Plus, BarChart3, Trophy, User } from 'lucide-react';
 import { MOCK_MARKETS } from '../constants';
 
 interface MarketsScreenProps {
@@ -22,9 +22,7 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket }) => {
             <button className="p-2 rounded-lg hover:bg-slate-100 transition-colors">
               <Search className="w-5 h-5 text-slate-600" />
             </button>
-            <button className="p-2 rounded-lg hover:bg-slate-100 transition-colors">
-              <UserCircle className="w-5 h-5 text-slate-600" />
-            </button>
+            {/* Profile icon removed from here */}
           </div>
         </div>
 
@@ -45,9 +43,7 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket }) => {
         <button className="flex h-8 shrink-0 items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 text-xs font-medium text-slate-700">
           Department <ChevronDown className="w-3 h-3" />
         </button>
-        <button className="flex h-8 shrink-0 items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 text-xs font-medium text-slate-700">
-          Volatility <ChevronDown className="w-3 h-3" />
-        </button>
+        {/* Volatility dropdown removed from here */}
       </div>
 
       {/* List */}
@@ -79,7 +75,7 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket }) => {
                     <User className="w-3 h-3" /> {market.participants} Participants
                   </div>
                   <div className="flex items-center gap-1 text-[11px] font-medium text-slate-600 bg-slate-100 px-2 py-0.5 rounded">
-                    <History className="w-3 h-3" /> {market.timeLeft}
+                    <Plus className="w-3 h-3" /> {market.timeLeft}
                   </div>
                 </div>
               </div>
@@ -100,17 +96,13 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket }) => {
       {/* Bottom Nav */}
       <nav className="sticky bottom-0 bg-white/95 backdrop-blur-md border-t border-slate-100 pb-8 pt-2">
         <div className="flex justify-around items-center px-4">
+          <a href="#" className="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600">
+            <Trophy className="w-6 h-6" />
+            <span className="text-[10px] font-semibold">Leaderboard</span>
+          </a>
           <a href="#" className="flex flex-col items-center gap-1 text-blue-600">
             <BarChart3 className="w-6 h-6" />
             <span className="text-[10px] font-semibold">Markets</span>
-          </a>
-          <a href="#" className="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600">
-            <Wallet className="w-6 h-6" />
-            <span className="text-[10px] font-semibold">Portfolio</span>
-          </a>
-          <a href="#" className="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600">
-            <History className="w-6 h-6" />
-            <span className="text-[10px] font-semibold">Activity</span>
           </a>
           <a href="#" className="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600">
             <User className="w-6 h-6" />
