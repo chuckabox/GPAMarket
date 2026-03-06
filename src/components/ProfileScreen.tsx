@@ -35,17 +35,17 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigate }) => {
         <div className="flex items-center gap-4">
           <div className="w-20 h-20 rounded-full border-4 border-brand-blue/10 p-1">
             <img 
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=200&h=200" 
+              src="https://media.licdn.com/dms/image/v2/C5603AQGUrXhzYpFNPA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1653416381156?e=1774483200&v=beta&t=T29FYX5SPPetCRrSwCewDTe1VEgou2PtJiHKf6oMBnM" 
               alt="Profile" 
               className="w-full h-full rounded-full object-cover"
               referrerPolicy="no-referrer"
             />
           </div>
           <div className="flex flex-col">
-            <h2 className="text-xl font-bold text-primary-text dark:text-dark-text">Peter C.</h2>
+            <h2 className="text-xl font-bold text-primary-text dark:text-dark-text">Andrej Karpathy</h2>
             <p className="text-sm text-slate-500 dark:text-dark-muted font-medium">B. Computer Science</p>
             <div className="mt-2 flex items-center gap-2">
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-blue text-white uppercase tracking-wider">GPA 6.42</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-blue text-white uppercase tracking-wider">GPA 6.25</span>
               <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-dark-muted uppercase tracking-wider">2nd Year</span>
               <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Verified</span>
             </div>

@@ -42,7 +42,6 @@ const TranscriptUploadScreen: React.FC<TranscriptUploadScreenProps> = ({ onNext,
     if (!file) return;
     setIsUploading(true);
     
-    // Simulate upload and extraction
     let progress = 0;
     const interval = setInterval(() => {
       progress += 10;
@@ -71,12 +70,12 @@ const TranscriptUploadScreen: React.FC<TranscriptUploadScreenProps> = ({ onNext,
       </div>
 
       {/* Content */}
-      <div className="flex-1 px-6 pt-10 w-full text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-primary-text dark:text-dark-text mb-2">Verify your GPA</h1>
-        <p className="text-sm text-slate-500 dark:text-dark-muted mb-10">Upload your official university transcript to verify your academic performance.</p>
+      <div className="flex-1 px-6 pt-6 w-full text-center"> {/* Reduced pt-10 to pt-6 */}
+        <h1 className="text-3xl font-bold tracking-tight text-primary-text dark:text-dark-text mb-2">Upload Transcript</h1>
+        <p className="text-sm text-slate-500 dark:text-dark-muted mb-8">Let's get your academic profile ready. Upload your official PDF transcript to continue.</p>
 
         <div 
-          className={`relative border-2 border-dashed rounded-3xl p-8 transition-all duration-200 flex flex-col items-center justify-center gap-4 mb-8 ${
+          className={`relative border-2 border-dashed rounded-3xl p-8 transition-all duration-200 flex flex-col items-center justify-center gap-4 mb-6 ${
             isDragging 
               ? 'border-brand-blue bg-brand-blue/5 scale-[1.02]' 
               : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-dark-surface'
@@ -118,7 +117,7 @@ const TranscriptUploadScreen: React.FC<TranscriptUploadScreenProps> = ({ onNext,
         </div>
 
         {isUploading && (
-          <div className="mt-8 space-y-3">
+          <div className="mt-4 mb-6 space-y-3">
             <div className="flex justify-between items-center text-xs font-bold text-brand-blue uppercase tracking-wider">
               <span>Extracting Academic Data...</span>
               <span>{uploadProgress}%</span>
@@ -129,42 +128,12 @@ const TranscriptUploadScreen: React.FC<TranscriptUploadScreenProps> = ({ onNext,
                 style={{ width: `${uploadProgress}%` }}
               />
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-dark-muted italic">Our AI is parsing your GPA, degree, and course history.</p>
           </div>
         )}
 
         {!isUploading && (
-          <div className="space-y-6 text-left">
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider ml-4">Full Name (as on transcript)</label>
-                <input 
-                  type="text" 
-                  placeholder="Peter C."
-                  className="w-full px-5 py-3 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm text-primary-text dark:text-dark-text"
-                />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider ml-4">Current GPA</label>
-                  <input 
-                    type="text" 
-                    placeholder="6.42"
-                    className="w-full px-5 py-3 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm text-primary-text dark:text-dark-text"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider ml-4">Degree</label>
-                  <input 
-                    type="text" 
-                    placeholder="B. Comp Sci"
-                    className="w-full px-5 py-3 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm text-primary-text dark:text-dark-text"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-4 space-y-4">
+          <div className="space-y-4 text-left"> {/* Reduced space-y-6 to space-y-4 */}
+            <div className="pt-2 space-y-3">
               <button 
                 onClick={handleUpload}
                 disabled={!file}
@@ -186,13 +155,14 @@ const TranscriptUploadScreen: React.FC<TranscriptUploadScreenProps> = ({ onNext,
           </div>
         )}
 
-        <div className="mt-12 p-5 bg-slate-50 dark:bg-dark-surface rounded-2xl border border-slate-100 dark:border-slate-800 text-left">
-          <div className="flex items-center gap-3 mb-3">
-            <FileText className="w-5 h-5 text-brand-blue" />
-            <span className="text-xs font-bold text-primary-text dark:text-dark-text uppercase tracking-wider">Data Privacy</span>
+        {/* Data Privacy Section - Moved up from mt-12 to mt-6 */}
+        <div className="mt-6 p-5 bg-slate-50 dark:bg-dark-surface rounded-2xl border border-slate-100 dark:border-slate-800 text-left">
+          <div className="flex items-center gap-3 mb-2">
+            <FileText className="w-4 h-4 text-brand-blue" />
+            <span className="text-[10px] font-bold text-primary-text dark:text-dark-text uppercase tracking-widest">Data Privacy</span>
           </div>
           <p className="text-[11px] text-slate-500 dark:text-dark-muted leading-relaxed">
-            Your transcript is used solely for verification. We extract your GPA, degree name, and course list to build your academic profile. Files are encrypted and never shared with third parties.
+            Your transcript is used solely for verification. We extract GPA and course history to build your profile. Files are encrypted and never shared.
           </p>
         </div>
       </div>

@@ -10,14 +10,14 @@ interface Course {
 }
 
 const MOCK_COURSES: Course[] = [
-  { id: '1', code: 'CSSE1001', name: 'Intro to Software Engineering', gpa: '6.5', semester: 'Sem 1, 2023' },
-  { id: '2', code: 'MATH1051', name: 'Calculus & Linear Algebra', gpa: '6.0', semester: 'Sem 1, 2023' },
-  { id: '3', code: 'ENGG1100', name: 'Professional Engineering', gpa: '7.0', semester: 'Sem 1, 2023' },
-  { id: '4', code: 'COMP3400', name: 'Algorithms & Data Structures', gpa: '6.8', semester: 'Sem 2, 2023' },
-  { id: '5', code: 'DECO1800', name: 'Design Computing Studio', gpa: '6.2', semester: 'Sem 2, 2023' },
-  { id: '6', code: 'MATH2001', name: 'Advanced Calculus', gpa: '5.5', semester: 'Sem 2, 2023' },
-  { id: '7', code: 'CSSE2010', name: 'Computer Systems', gpa: '6.9', semester: 'Sem 1, 2024' },
-  { id: '8', code: 'STAT2003', name: 'Probability & Statistics', gpa: '6.4', semester: 'Sem 1, 2024' },
+  { id: '1', code: 'COMP3400', name: 'Functional and Logic Programming', gpa: '7.00', semester: 'Sem 2, 2023' },
+  { id: '2', code: 'CSSE1001', name: 'Introduction to Software Engineering', gpa: '7.00', semester: 'Sem 1, 2023' },
+  { id: '3', code: 'CSSE2010', name: 'Introduction to Computer Systems', gpa: '6.00', semester: 'Sem 1, 2024' },
+  { id: '4', code: 'CSSE2310', name: 'Computer Systems', gpa: '6.00', semester: 'Sem 2, 2023' },
+  { id: '5', code: 'ENGG1100', name: 'Professional Engineering', gpa: '7.00', semester: 'Sem 1, 2023' },
+  { id: '6', code: 'MATH1051', name: 'Calculus & Linear Algebra', gpa: '6.00', semester: 'Sem 1, 2023' },
+  { id: '7', code: 'MATH1052', name: 'Multivariate Calculus & ODEs', gpa: '6.00', semester: 'Sem 1, 2024' },
+  { id: '8', code: 'MATH2001', name: 'Calculus & Linear Algebra II', gpa: '5.00', semester: 'Sem 2, 2023' },
 ];
 
 interface CoursesScreenProps {
@@ -88,7 +88,7 @@ const CoursesScreen: React.FC<CoursesScreenProps> = ({ onBack }) => {
         <div className="flex justify-between items-center">
           <div className="flex flex-col">
             <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider">Cumulative GPA</span>
-            <span className="text-2xl font-black text-brand-blue">6.42</span>
+            <span className="text-2xl font-black text-brand-blue">6.25</span>
           </div>
           <div className="text-right">
             <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider block mb-1">Total Credits</span>

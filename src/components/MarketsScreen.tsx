@@ -17,7 +17,7 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigat
             <div className="w-8 h-8 rounded-lg bg-brand-blue flex items-center justify-center text-white">
               <BarChart3 className="w-5 h-5" />
             </div>
-            <h1 className="text-lg font-semibold tracking-tight text-primary-text dark:text-dark-text">Available Markets</h1>
+            <h1 className="text-lg font-semibold tracking-tight text-primary-text dark:text-dark-text">Markets</h1>
           </div>
           <div className="flex items-center gap-2">
             <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">

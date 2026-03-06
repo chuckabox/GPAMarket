@@ -29,16 +29,16 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
           <div className="flex items-center gap-4">
             <div className="relative w-16 h-16 shrink-0">
               <img 
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100&h=100" 
-                alt="Alex Rivers"
+                src="https://media.licdn.com/dms/image/v2/C4E03AQEtk_sHGXqRYA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1609634162745?e=1774483200&v=beta&t=xoTTBDnSke7AQCZpPV40j_XnZLp-VXvRiBTNESuHTzI" 
+                alt="Paul Vrbik"
                 className="w-full h-full rounded-full object-cover ring-2 ring-blue-50 dark:ring-slate-800"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-green-500 border-2 border-white dark:border-dark-surface" />
             </div>
             <div className="flex flex-col">
-              <p className="text-xl font-bold tracking-tight text-primary-text dark:text-dark-text">Alex Rivers</p>
-              <p className="text-[13px] text-slate-500 dark:text-dark-muted font-medium">Advanced Mathematics (MATH301)</p>
+              <p className="text-xl font-bold tracking-tight text-primary-text dark:text-dark-text">Paul Vrbik</p>
+              <p className="text-[13px] text-slate-500 dark:text-dark-muted font-medium">Introduction to Software Engineering (CSSE1001)</p>
               <div className="flex items-center gap-1.5 mt-1">
                 <span className="text-[11px] px-2 py-0.5 rounded-full bg-brand-blue/10 dark:bg-brand-blue/20 text-brand-blue font-semibold uppercase tracking-wider">Top 5% Student</span>
               </div>

@@ -26,14 +26,15 @@ const SignUpScreen: React.FC<SignUpScreenProps> = ({ onNext, onBack }) => {
       {/* Content */}
       <div className="flex-1 px-6 pt-10 w-full text-center">
         <h1 className="text-3xl font-bold tracking-tight text-primary-text dark:text-dark-text mb-2">Create your account</h1>
-        <p className="text-sm text-slate-500 dark:text-dark-muted mb-10">Join the academic performance marketplace.</p>
+        {/* Updated subtitle for betting relevance */}
+        <p className="text-sm text-slate-500 dark:text-dark-muted mb-8">Start trading on academic outcomes today.</p>
 
-        <form className="space-y-6 text-left" onSubmit={(e) => { e.preventDefault(); onNext(); }}>
+        <form className="space-y-5 text-left" onSubmit={(e) => { e.preventDefault(); onNext(); }}>
           <div className="space-y-2">
-            <label className="text-sm font-medium text-primary-text dark:text-dark-text ml-4">University Email</label>
+            <label className="text-sm font-medium text-primary-text dark:text-dark-text ml-4">Email Address</label>
             <input 
               type="email" 
-              placeholder="name@university.edu"
+              placeholder="name@example.com"
               className="w-full px-5 py-3 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all text-sm text-primary-text dark:text-dark-text"
             />
           </div>
@@ -73,16 +74,17 @@ const SignUpScreen: React.FC<SignUpScreenProps> = ({ onNext, onBack }) => {
           </button>
         </form>
 
+        {/* Moved Login higher and adjusted spacing */}
         <div className="mt-8 text-center">
-          <p className="text-xs text-slate-500 dark:text-dark-muted leading-relaxed">
-            By creating an account, you agree to our <br/>
-            <a href="#" className="text-brand-blue hover:underline font-medium">Terms of Service</a> and <a href="#" className="text-brand-blue hover:underline font-medium">Privacy Policy</a>.
+          <p className="text-sm text-slate-600 dark:text-dark-muted">
+            Already have an account? <a href="#" className="text-brand-blue font-semibold hover:underline">Log in</a>
           </p>
         </div>
 
-        <div className="mt-12 text-center pb-8">
-          <p className="text-sm text-slate-600 dark:text-dark-muted">
-            Already have an account? <a href="#" className="text-brand-blue font-semibold hover:underline">Log in</a>
+        <div className="mt-10 text-center pb-8">
+          <p className="text-[11px] text-slate-400 dark:text-dark-muted leading-relaxed px-4">
+            By creating an account, you agree to our <br/>
+            <a href="#" className="text-brand-blue hover:underline font-medium">Terms of Service</a> and <a href="#" className="text-brand-blue hover:underline font-medium">Privacy Policy</a>.
           </p>
         </div>
       </div>

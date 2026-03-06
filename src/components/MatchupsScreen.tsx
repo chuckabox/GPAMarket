@@ -8,8 +8,8 @@ interface MatchupsScreenProps {
 const MOCK_MATCHUPS = [
   {
     id: '1',
-    studentA: { name: 'Paul V.', avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=100&h=100' },
-    studentB: { name: 'Elouise C.', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100&h=100' },
+    studentA: { name: 'Paul V.', avatar: 'https://media.licdn.com/dms/image/v2/C4E03AQEtk_sHGXqRYA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1609634162745?e=1774483200&v=beta&t=5-PmfToKsFbutseZXjaU6DJNO9DedBqSBVm9D3Wfrr0' },
+    studentB: { name: 'Elouise C.', avatar: 'https://media.licdn.com/dms/image/v2/D5603AQExPpM0fJiaRw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684824595687?e=1774483200&v=beta&t=cw9r6IaZ7BI_8kxt8dPl-Fy1U_4K-ebOwyvQSr-PeNA' },
     course: 'CSSE1001',
     type: 'Final Exam',
     timeLeft: '2d 14h',
@@ -17,7 +17,7 @@ const MOCK_MATCHUPS = [
   },
   {
     id: '2',
-    studentA: { name: 'Felix H.', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100' },
+    studentA: { name: 'Felix H.', avatar: 'https://media.licdn.com/dms/image/v2/D4D03AQGwtWIfkdI_6A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714480211761?e=1774483200&v=beta&t=H-1TcQopRLGwQMtX5XI74lC6eYex7zaFkQPeEht5xFE' },
     studentB: { name: 'Harper M.', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100&h=100' },
     course: 'MATH1051',
     type: 'Final Exam',
