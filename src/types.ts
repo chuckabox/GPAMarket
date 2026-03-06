@@ -10,6 +10,6 @@ export interface Market {
   participants: number;
   timeLeft: string;
   status: 'ACTIVE' | 'CLOSING' | 'PAUSED';
-  odds: string;
+  studentName: string; // Changed from odds
   icon: React.ReactNode;
 }

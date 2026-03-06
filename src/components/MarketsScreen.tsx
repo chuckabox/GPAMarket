@@ -71,10 +71,10 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigat
 
               <div className="text-right">
                 <p className="text-[10px] uppercase tracking-wider font-bold text-slate-400 dark:text-dark-muted mb-0.5">
-                  Current Odds
+                  Student
                 </p>
                 <p className="text-lg font-bold text-primary-text dark:text-dark-text leading-none">
-                  {market.odds}
+                  {market.studentName}
                 </p>
               </div>
             </div>

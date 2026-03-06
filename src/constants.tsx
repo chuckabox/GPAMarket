@@ -19,7 +19,7 @@ export const MOCK_MARKETS: Market[] = [
     participants: 128,
     timeLeft: '2d left',
     status: 'ACTIVE',
-    odds: '1.25x',
+    studentName: 'Felix H.',
     icon: <Code2 className="w-4 h-4 text-brand-blue" />
   },
   {
@@ -30,7 +30,7 @@ export const MOCK_MARKETS: Market[] = [
     participants: 84,
     timeLeft: '1h left',
     status: 'CLOSING',
-    odds: '3.40x',
+    studentName: 'Paul V.',
     icon: <Terminal className="w-4 h-4 text-brand-blue" />
   },
   {
@@ -41,7 +41,7 @@ export const MOCK_MARKETS: Market[] = [
     participants: 42,
     timeLeft: '5d left',
     status: 'ACTIVE',
-    odds: '1.95x',
+    studentName: 'Elouise C.',
     icon: <Cpu className="w-4 h-4 text-brand-blue" />
   },
   {
@@ -52,7 +52,7 @@ export const MOCK_MARKETS: Market[] = [
     participants: 215,
     timeLeft: '3d left',
     status: 'ACTIVE',
-    odds: '2.10x',
+    studentName: 'Adin S.',
     icon: <Layers className="w-4 h-4 text-brand-blue" />
   },
   {
@@ -63,7 +63,7 @@ export const MOCK_MARKETS: Market[] = [
     participants: 312,
     timeLeft: '5h left',
     status: 'CLOSING',
-    odds: '1.15x',
+    studentName: 'Brendan C.',
     icon: <HardHat className="w-4 h-4 text-brand-blue" />
   }
 ];
