@@ -9,6 +9,8 @@ import MatchupsScreen from './components/MatchupsScreen';
 import LeaderboardScreen from './components/LeaderboardScreen';
 import ProfileScreen from './components/ProfileScreen';
 import SettingsScreen from './components/SettingsScreen';
+import TranscriptUploadScreen from './components/TranscriptUploadScreen';
+import CoursesScreen from './components/CoursesScreen';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<Screen>('home');
@@ -22,7 +24,7 @@ export default function App() {
     }
   }, [isDarkMode]);
 
-  const handleNavigate = (screen: 'markets' | 'matchups' | 'profile' | 'leaderboard' | 'settings') => {
+  const handleNavigate = (screen: 'markets' | 'matchups' | 'profile' | 'leaderboard' | 'settings' | 'courses') => {
     setCurrentScreen(screen);
   };
 
@@ -43,8 +45,14 @@ export default function App() {
           )}
           {currentScreen === 'signup' && (
             <SignUpScreen 
-              onNext={() => setCurrentScreen('markets')} 
+              onNext={() => setCurrentScreen('transcript_upload')} 
               onBack={() => setCurrentScreen('home')}
+            />
+          )}
+          {currentScreen === 'transcript_upload' && (
+            <TranscriptUploadScreen 
+              onNext={() => setCurrentScreen('markets')} 
+              onBack={() => setCurrentScreen('signup')}
             />
           )}
           {currentScreen === 'markets' && (
@@ -77,6 +85,9 @@ export default function App() {
           )}
           {currentScreen === 'bet' && (
             <PlaceBetScreen onBack={() => setCurrentScreen('markets')} />
+          )}
+          {currentScreen === 'courses' && (
+            <CoursesScreen onBack={() => setCurrentScreen('profile')} />
           )}
         </motion.div>
       </AnimatePresence>

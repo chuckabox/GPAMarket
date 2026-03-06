@@ -128,7 +128,6 @@ const LeaderboardScreen: React.FC<LeaderboardScreenProps> = ({ onNavigate }) => 
                 </div>
                 <div className="flex flex-col">
                   <span className="text-sm font-bold text-primary-text dark:text-dark-text">{user.name}</span>
-                  <span className="text-[10px] text-slate-500 dark:text-dark-muted font-medium">Level {Math.floor(user.wins / 5) + 1} Scholar</span>
                 </div>
               </div>
 

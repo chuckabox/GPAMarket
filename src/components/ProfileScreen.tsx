@@ -1,25 +1,37 @@
 import React from 'react';
-import { Trophy, BarChart3, User, Swords, Settings, LogOut, ChevronRight } from 'lucide-react';
+import { Trophy, BarChart3, User, Swords, Settings, LogOut, ChevronRight, BookOpen, Bell } from 'lucide-react';
 
 interface ProfileScreenProps {
-  onNavigate: (screen: 'markets' | 'matchups' | 'profile' | 'leaderboard' | 'settings') => void;
+  onNavigate: (screen: 'markets' | 'matchups' | 'profile' | 'leaderboard' | 'settings' | 'courses') => void;
 }
 
 const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigate }) => {
   return (
     <div className="flex flex-col min-h-screen bg-[#f6f6f8] dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl relative overflow-x-hidden transition-colors duration-200">
       {/* Header */}
-      <header className="bg-white dark:bg-dark-surface px-6 pt-12 pb-6 border-b border-slate-100 dark:border-slate-800">
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-black text-primary-text dark:text-dark-text">Profile</h1>
-          <button 
-            onClick={() => onNavigate('settings')}
-            className="p-2 rounded-full bg-slate-50 dark:bg-slate-800 text-slate-400 dark:text-dark-muted"
-          >
-            <Settings className="w-5 h-5" />
-          </button>
+      <header className="sticky top-0 z-10 bg-white/80 dark:bg-dark-surface/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
+        <div className="flex items-center justify-between px-4 py-4">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-brand-blue flex items-center justify-center text-white">
+              <User className="w-5 h-5" />
+            </div>
+            <h1 className="text-lg font-semibold tracking-tight text-primary-text dark:text-dark-text">My Profile</h1>
+          </div>
+          <div className="flex items-center gap-2">
+            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+              <Bell className="w-5 h-5 text-slate-600 dark:text-dark-muted" />
+            </button>
+            <button 
+              onClick={() => onNavigate('settings')}
+              className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            >
+              <Settings className="w-5 h-5 text-slate-600 dark:text-dark-muted" />
+            </button>
+          </div>
         </div>
+      </header>
 
+      <div className="bg-white dark:bg-dark-surface px-6 py-8 border-b border-slate-100 dark:border-slate-800">
         <div className="flex items-center gap-4">
           <div className="w-20 h-20 rounded-full border-4 border-brand-blue/10 p-1">
             <img 
@@ -31,15 +43,15 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigate }) => {
           </div>
           <div className="flex flex-col">
             <h2 className="text-xl font-bold text-primary-text dark:text-dark-text">Peter C.</h2>
-            <p className="text-sm text-slate-500 dark:text-dark-muted font-medium">University of Queensland</p>
+            <p className="text-sm text-slate-500 dark:text-dark-muted font-medium">B. Computer Science</p>
             <div className="mt-2 flex items-center gap-2">
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-blue text-white uppercase tracking-wider">2nd Year</span>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-dark-muted uppercase tracking-wider">Comp Sci</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-blue text-white uppercase tracking-wider">GPA 6.42</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-dark-muted uppercase tracking-wider">2nd Year</span>
               <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Verified</span>
             </div>
           </div>
         </div>
-      </header>
+      </div>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 gap-3 p-4">
@@ -56,14 +68,20 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigate }) => {
       {/* Menu */}
       <main className="flex-1 px-4 pb-24">
         <div className="bg-white dark:bg-dark-surface rounded-2xl border border-slate-100 dark:border-slate-800 divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden shadow-sm">
-          <button className="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+          <button 
+            onClick={() => onNavigate('courses')}
+            className="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+          >
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-brand-blue/10 dark:bg-brand-blue/20 flex items-center justify-center text-brand-blue">
-                <Trophy className="w-4 h-4" />
+                <BookOpen className="w-4 h-4" />
               </div>
-              <span className="text-sm font-bold text-primary-text dark:text-dark-text">My Achievements</span>
+              <span className="text-sm font-bold text-primary-text dark:text-dark-text">Courses Completed</span>
             </div>
-            <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600" />
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider">8 Courses</span>
+              <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600" />
+            </div>
           </button>
           <button className="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
             <div className="flex items-center gap-3">

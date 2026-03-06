@@ -11,10 +11,10 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({ onBack, isDarkMode, onT
   return (
     <div className="flex flex-col min-h-screen bg-[#f6f6f8] dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl relative overflow-x-hidden transition-colors duration-200">
       {/* Header */}
-      <header className="bg-white dark:bg-dark-surface px-4 h-14 border-b border-slate-200 dark:border-slate-800 flex items-center sticky top-0 z-10">
+      <header className="bg-white dark:bg-dark-surface px-4 py-5 border-b border-slate-200 dark:border-slate-800 flex items-center sticky top-0 z-10">
         <button 
           onClick={onBack}
-          className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-dark-muted"
+          className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-dark-muted"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>

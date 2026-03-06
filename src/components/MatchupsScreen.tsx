@@ -72,7 +72,6 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
             <a className="border-b-2 border-brand-blue py-2 text-sm font-medium text-brand-blue whitespace-nowrap" href="#">Active Challenges</a>
             <a className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 dark:text-dark-muted hover:text-primary-text dark:hover:text-dark-text whitespace-nowrap" href="#">My Duels</a>
             <a className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 dark:text-dark-muted hover:text-primary-text dark:hover:text-dark-text whitespace-nowrap" href="#">Invites</a>
-            <a className="border-b-2 border-transparent py-2 text-sm font-medium text-slate-500 dark:text-dark-muted hover:text-primary-text dark:hover:text-dark-text whitespace-nowrap" href="#">Leaderboard</a>
           </div>
         </div>
       </header>
