@@ -31,10 +31,10 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigat
       {/* Filters */}
       <div className="flex gap-2 p-4 overflow-x-auto no-scrollbar bg-slate-50 dark:bg-dark-bg">
         <button className="flex h-8 shrink-0 items-center gap-2 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface px-4 text-xs font-medium text-slate-700 dark:text-dark-text">
-          Status: Open <ChevronDown className="w-3 h-3" />
+          Status: Any <ChevronDown className="w-3 h-3" />
         </button>
         <button className="flex h-8 shrink-0 items-center gap-2 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-dark-surface px-4 text-xs font-medium text-slate-700 dark:text-dark-text">
-          Department <ChevronDown className="w-3 h-3" />
+          Department: Any <ChevronDown className="w-3 h-3" />
         </button>
       </div>
 
@@ -60,20 +60,22 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigat
               </span>
             </div>
             <div className="flex justify-between items-end">
-              <div className="space-y-1">
-                <p className="text-xs text-slate-500 dark:text-dark-muted">Target Grade: {market.targetGrade} • {market.examType}</p>
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-1 text-[11px] font-medium text-slate-600 dark:text-dark-text bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-full">
-                    <User className="w-3 h-3" /> {market.participants} Participants
-                  </div>
-                  <div className="flex items-center gap-1 text-[11px] font-medium text-slate-600 dark:text-dark-text bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-full">
-                    <Plus className="w-3 h-3" /> {market.timeLeft}
-                  </div>
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-1 text-[11px] font-medium text-slate-600 dark:text-dark-text bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-full">
+                  <User className="w-3 h-3" /> {market.participants} Participants
+                </div>
+                <div className="flex items-center gap-1 text-[11px] font-medium text-slate-600 dark:text-dark-text bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-full">
+                  <Plus className="w-3 h-3" /> {market.timeLeft}
                 </div>
               </div>
+
               <div className="text-right">
-                <p className="text-[10px] uppercase tracking-wider font-bold text-slate-400 dark:text-dark-muted mb-0.5">Current Odds</p>
-                <p className="text-lg font-bold text-primary-text dark:text-dark-text leading-none">{market.odds}</p>
+                <p className="text-[10px] uppercase tracking-wider font-bold text-slate-400 dark:text-dark-muted mb-0.5">
+                  Current Odds
+                </p>
+                <p className="text-lg font-bold text-primary-text dark:text-dark-text leading-none">
+                  {market.odds}
+                </p>
               </div>
             </div>
           </div>
@@ -100,7 +102,7 @@ const MarketsScreen: React.FC<MarketsScreenProps> = ({ onSelectMarket, onNavigat
             className="flex flex-col items-center gap-1 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text transition-colors"
           >
             <Swords className="w-6 h-6" />
-            <span className="text-[10px] font-semibold">1v1s</span>
+            <span className="text-[10px] font-semibold">Duels</span>
           </button>
           <button 
             onClick={() => onNavigate('markets')}

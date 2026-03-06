@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Search, Filter, Swords, Trophy, BarChart3, User, Plus, ShieldAlert } from 'lucide-react';
 
 interface MatchupsScreenProps {
@@ -8,21 +8,37 @@ interface MatchupsScreenProps {
 const MOCK_MATCHUPS = [
   {
     id: '1',
-    studentA: { name: 'Paul V.', avatar: 'https://media.licdn.com/dms/image/v2/C4E03AQEtk_sHGXqRYA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1609634162745?e=1774483200&v=beta&t=5-PmfToKsFbutseZXjaU6DJNO9DedBqSBVm9D3Wfrr0' },
-    studentB: { name: 'Elouise C.', avatar: 'https://media.licdn.com/dms/image/v2/D5603AQExPpM0fJiaRw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684824595687?e=1774483200&v=beta&t=cw9r6IaZ7BI_8kxt8dPl-Fy1U_4K-ebOwyvQSr-PeNA' },
+    // Felix on the left vs Paul on the right
+    studentA: { 
+      name: 'Felix H.', 
+      avatar: 'https://media.licdn.com/dms/image/v2/D4D03AQGwtWIfkdI_6A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714480211761?e=1774483200&v=beta&t=H-1TcQopRLGwQMtX5XI74lC6eYex7zaFkQPeEht5xFE' 
+    },
+    studentB: { 
+      name: 'Paul V.', 
+      avatar: 'https://media.licdn.com/dms/image/v2/C4E03AQEtk_sHGXqRYA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1609634162745?e=1774483200&v=beta&t=5-PmfToKsFbutseZXjaU6DJNO9DedBqSBVm9D3Wfrr0' 
+    },
     course: 'CSSE1001',
     type: 'Final Exam',
-    timeLeft: '2d 14h',
-    stake: '$50.00'
+    timeLeft: '5h 12m',
+    stake: '$25.00',
+    reactions: { fire: 4, surprise: 2, rocket: 15, clap: 1 }
   },
   {
     id: '2',
-    studentA: { name: 'Felix H.', avatar: 'https://media.licdn.com/dms/image/v2/D4D03AQGwtWIfkdI_6A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714480211761?e=1774483200&v=beta&t=H-1TcQopRLGwQMtX5XI74lC6eYex7zaFkQPeEht5xFE' },
-    studentB: { name: 'Harper M.', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100&h=100' },
+    // Elouise on the left vs Andrej on the right
+    studentA: { 
+      name: 'Elouise C.', 
+      avatar: 'https://media.licdn.com/dms/image/v2/D5603AQExPpM0fJiaRw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684824595687?e=1774483200&v=beta&t=cw9r6IaZ7BI_8kxt8dPl-Fy1U_4K-ebOwyvQSr-PeNA' 
+    },
+    studentB: { 
+      name: 'Adin S.', 
+      avatar: 'https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' 
+    },
     course: 'MATH1051',
-    type: 'Final Exam',
-    timeLeft: '5h 12m',
-    stake: '$25.00'
+    type: 'Assignment 2',
+    timeLeft: '2d 14h',
+    stake: '$50.00',
+    reactions: { fire: 12, surprise: 5, rocket: 8, clap: 3 }
   },
   {
     id: '3',
@@ -31,18 +47,54 @@ const MOCK_MATCHUPS = [
     course: 'ENGG1100',
     type: 'Mid-semester Exam',
     timeLeft: '1d 08h',
-    stake: '$100.00'
+    stake: '$100.00',
+    reactions: { fire: 22, surprise: 8, rocket: 3, clap: 10 }
   },
   {
     id: '4',
     studentA: { name: 'Annie H.', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100&h=100' },
-    studentB: { name: 'Jeff B.', avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=100&h=100' },
+    studentB: { name: 'Harper M.', avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=100&h=100' },
     course: 'COMP3400',
     type: 'Final Exam',
     timeLeft: '12h 45m',
-    stake: '$15.00'
+    stake: '$15.00',
+    reactions: { fire: 7, surprise: 1, rocket: 2, clap: 5 }
   }
 ];
+
+// --- Sub-component for individual reactions ---
+const ReactionButton = ({ emoji, initialCount }: { emoji: string; initialCount: number }) => {
+  const [count, setCount] = useState(initialCount);
+  const [isActive, setIsActive] = useState(false);
+
+  const handleToggle = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (isActive) {
+      setCount(prev => prev - 1);
+    } else {
+      setCount(prev => prev + 1);
+    }
+    setIsActive(!isActive);
+  };
+
+  return (
+    <button 
+      onClick={handleToggle}
+      className={`flex items-center gap-1.5 px-2 py-1 rounded-full border transition-all duration-200 group ${
+        isActive 
+          ? 'bg-brand-blue/10 border-brand-blue' 
+          : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-brand-blue'
+      }`}
+    >
+      <span className="text-xs">{emoji}</span>
+      <span className={`text-[10px] font-bold ${
+        isActive ? 'text-brand-blue' : 'text-slate-600 dark:text-dark-muted group-hover:text-brand-blue'
+      }`}>
+        {count}
+      </span>
+    </button>
+  );
+};
 
 const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
   return (
@@ -54,7 +106,7 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
             <div className="w-8 h-8 rounded-lg bg-brand-blue flex items-center justify-center text-white">
               <Swords className="w-5 h-5" />
             </div>
-            <h1 className="text-lg font-semibold tracking-tight text-primary-text dark:text-dark-text">1v1 Matchups</h1>
+            <h1 className="text-lg font-semibold tracking-tight text-primary-text dark:text-dark-text">Duels</h1>
           </div>
           <div className="flex items-center gap-2">
             <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
@@ -114,24 +166,12 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
               </div>
             </div>
 
-            {/* Emoji Reactions */}
+            {/* Emoji Reactions (Now Interactive) */}
             <div className="mt-4 flex items-center gap-2 overflow-x-auto no-scrollbar">
-              <button className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-blue transition-colors group">
-                <span className="text-xs">🔥</span>
-                <span className="text-[10px] font-bold text-slate-600 dark:text-dark-muted group-hover:text-brand-blue">12</span>
-              </button>
-              <button className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-blue transition-colors group">
-                <span className="text-xs">😮</span>
-                <span className="text-[10px] font-bold text-slate-600 dark:text-dark-muted group-hover:text-brand-blue">5</span>
-              </button>
-              <button className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-blue transition-colors group">
-                <span className="text-xs">🚀</span>
-                <span className="text-[10px] font-bold text-slate-600 dark:text-dark-muted group-hover:text-brand-blue">8</span>
-              </button>
-              <button className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-blue transition-colors group">
-                <span className="text-xs">👏</span>
-                <span className="text-[10px] font-bold text-slate-600 dark:text-dark-muted group-hover:text-brand-blue">3</span>
-              </button>
+              <ReactionButton emoji="🔥" initialCount={matchup.reactions.fire} />
+              <ReactionButton emoji="😮" initialCount={matchup.reactions.surprise} />
+              <ReactionButton emoji="🚀" initialCount={matchup.reactions.rocket} />
+              <ReactionButton emoji="👏" initialCount={matchup.reactions.clap} />
               <button className="flex items-center justify-center w-7 h-7 rounded-full bg-slate-50 dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-700 text-slate-400 hover:text-brand-blue hover:border-brand-blue transition-colors">
                 <Plus className="w-3.5 h-3.5" />
               </button>
@@ -148,31 +188,19 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate }) => {
       {/* Bottom Nav */}
       <nav className="sticky bottom-0 bg-white/95 dark:bg-dark-surface/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 py-5">
         <div className="flex justify-around items-center px-4">
-          <button 
-            onClick={() => onNavigate('leaderboard')}
-            className="flex flex-col items-center gap-1 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text transition-colors"
-          >
+          <button onClick={() => onNavigate('leaderboard')} className="flex flex-col items-center gap-1 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text transition-colors">
             <Trophy className="w-6 h-6" />
             <span className="text-[10px] font-semibold">Leaderboard</span>
           </button>
-          <button 
-            onClick={() => onNavigate('matchups')}
-            className="flex flex-col items-center gap-1 text-brand-blue"
-          >
+          <button onClick={() => onNavigate('matchups')} className="flex flex-col items-center gap-1 text-brand-blue">
             <Swords className="w-6 h-6 fill-current" />
-            <span className="text-[10px] font-semibold">1v1s</span>
+            <span className="text-[10px] font-semibold">Duels</span>
           </button>
-          <button 
-            onClick={() => onNavigate('markets')}
-            className="flex flex-col items-center gap-1 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text transition-colors"
-          >
+          <button onClick={() => onNavigate('markets')} className="flex flex-col items-center gap-1 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text transition-colors">
             <BarChart3 className="w-6 h-6" />
             <span className="text-[10px] font-semibold">Markets</span>
           </button>
-          <button 
-            onClick={() => onNavigate('profile')}
-            className="flex flex-col items-center gap-1 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text transition-colors"
-          >
+          <button onClick={() => onNavigate('profile')} className="flex flex-col items-center gap-1 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text transition-colors">
             <User className="w-6 h-6" />
             <span className="text-[10px] font-semibold">Profile</span>
           </button>

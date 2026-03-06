@@ -10,16 +10,15 @@ interface Course {
 }
 
 const MOCK_COURSES: Course[] = [
-  { id: '1', code: 'COMP3400', name: 'Functional and Logic Programming', gpa: '7.00', semester: 'Sem 2, 2023' },
-  { id: '2', code: 'CSSE1001', name: 'Introduction to Software Engineering', gpa: '7.00', semester: 'Sem 1, 2023' },
-  { id: '3', code: 'CSSE2010', name: 'Introduction to Computer Systems', gpa: '6.00', semester: 'Sem 1, 2024' },
-  { id: '4', code: 'CSSE2310', name: 'Computer Systems', gpa: '6.00', semester: 'Sem 2, 2023' },
-  { id: '5', code: 'ENGG1100', name: 'Professional Engineering', gpa: '7.00', semester: 'Sem 1, 2023' },
-  { id: '6', code: 'MATH1051', name: 'Calculus & Linear Algebra', gpa: '6.00', semester: 'Sem 1, 2023' },
-  { id: '7', code: 'MATH1052', name: 'Multivariate Calculus & ODEs', gpa: '6.00', semester: 'Sem 1, 2024' },
-  { id: '8', code: 'MATH2001', name: 'Calculus & Linear Algebra II', gpa: '5.00', semester: 'Sem 2, 2023' },
+  { id: '1', code: 'COMP3400', name: 'Functional and Logic Programming', gpa: '7.00', semester: 'Sem 2, 2025' },
+  { id: '2', code: 'CSSE1001', name: 'Introduction to Software Engineering', gpa: '7.00', semester: 'Sem 1, 2025' },
+  { id: '3', code: 'CSSE2010', name: 'Introduction to Computer Systems', gpa: '6.00', semester: 'Sem 1, 2025' },
+  { id: '4', code: 'CSSE2310', name: 'Computer Systems Principles', gpa: '6.00', semester: 'Sem 2, 2025' },
+  { id: '5', code: 'ENGG1100', name: 'Professional Engineering', gpa: '7.00', semester: 'Sem 1, 2025' },
+  { id: '6', code: 'MATH1051', name: 'Calculus & Linear Algebra', gpa: '6.00', semester: 'Sem 1, 2025' },
+  { id: '7', code: 'MATH1052', name: 'Multivariate Calculus & ODEs', gpa: '6.00', semester: 'Sem 1, 2025' },
+  { id: '8', code: 'MATH2001', name: 'Calculus & Linear Algebra II', gpa: '5.00', semester: 'Sem 2, 2025' },
 ];
-
 interface CoursesScreenProps {
   onBack: () => void;
 }
@@ -92,7 +91,7 @@ const CoursesScreen: React.FC<CoursesScreenProps> = ({ onBack }) => {
           </div>
           <div className="text-right">
             <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider block mb-1">Total Credits</span>
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-dark-text">64 Units</span>
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-dark-text">16 Units</span>
           </div>
         </div>
       </footer>

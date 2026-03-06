@@ -92,9 +92,9 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onGetStarted }) => {
         <div className="w-full max-w-[240px]">
           <button 
             onClick={onGetStarted}
-            className="group relative flex h-16 w-full items-center justify-center bg-brand-blue text-lg font-bold text-white transition-all hover:brightness-110 active:scale-95 rounded-2xl shadow-2xl shadow-brand-blue/30"
+            className="group relative flex h-12 w-full items-center justify-center bg-brand-blue text-lg font-semibold text-white transition-all hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] rounded-full shadow-lg shadow-brand-blue/20"
           >
-            Get Started
+            GET STARTED
           </button>
         </div>
       </main>

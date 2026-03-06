@@ -57,11 +57,11 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigate }) => {
       <div className="grid grid-cols-2 gap-3 p-4">
         <div className="bg-white dark:bg-dark-surface p-4 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
           <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider">Total Winnings</span>
-          <p className="text-xl font-black text-primary-text dark:text-dark-text mt-1">$1,240.50</p>
+          <p className="text-xl font-black text-primary-text dark:text-dark-text mt-1">$3,400.67</p>
         </div>
         <div className="bg-white dark:bg-dark-surface p-4 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
           <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider">Total Games</span>
-          <p className="text-xl font-black text-primary-text dark:text-dark-text mt-1">82</p>
+          <p className="text-xl font-black text-primary-text dark:text-dark-text mt-1">40</p>
         </div>
       </div>
 
@@ -127,7 +127,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigate }) => {
             className="flex flex-col items-center gap-1 text-slate-400 dark:text-dark-muted hover:text-slate-600 dark:hover:text-dark-text transition-colors"
           >
             <Swords className="w-6 h-6" />
-            <span className="text-[10px] font-semibold">1v1s</span>
+            <span className="text-[10px] font-semibold">Duels</span>
           </button>
           <button 
             onClick={() => onNavigate('markets')}
