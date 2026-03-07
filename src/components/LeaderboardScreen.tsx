@@ -27,36 +27,43 @@ const MOCK_LEADERBOARD = [
     wins: 52,
     losses: 4,
   },
-  {
+    {
     id: '4',
+    name: 'Andrej K.',
+    avatar: 'https://media.licdn.com/dms/image/v2/C5603AQGUrXhzYpFNPA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1653416381156?e=1774483200&v=beta&t=T29FYX5SPPetCRrSwCewDTe1VEgou2PtJiHKf6oMBnM',
+    wins: 52,
+    losses: 4,
+  },
+  {
+    id: '5',
     name: 'Adin S.',
     avatar: 'https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?q=80&w=1170&auto=format&fit=crop',
     wins: 41,
     losses: 12,
   },
   {
-    id: '5',
+    id: '6',
     name: 'Harper M.', // Added Harper back in
     avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=100&h=100',
     wins: 38,
     losses: 14,
   },
   {
-    id: '6',
+    id: '7',
     name: 'Peter M.',
     avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=100&h=100',
     wins: 35,
     losses: 15,
   },
   {
-    id: '7',
+    id: '8',
     name: 'Brendan C.',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100&h=100',
     wins: 31,
     losses: 14,
   },
   {
-    id: '8',
+    id: '9',
     name: 'Annie H.',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100&h=100',
     wins: 28,
@@ -88,7 +95,7 @@ const LeaderboardScreen: React.FC<LeaderboardScreenProps> = ({ onNavigate }) => 
           <div className="bg-brand-blue/5 dark:bg-brand-blue/10 rounded-2xl p-4 flex justify-between items-center border border-brand-blue/10 dark:border-brand-blue/20">
             <div className="flex flex-col">
               <span className="text-[10px] font-bold text-brand-blue uppercase tracking-wider">Your Rank</span>
-              <span className="text-2xl font-black text-primary-text dark:text-dark-text">#9</span>
+              <span className="text-2xl font-black text-primary-text dark:text-dark-text">#4</span>
             </div>
             <div className="h-8 w-px bg-brand-blue/20" />
             <div className="flex flex-col text-right">

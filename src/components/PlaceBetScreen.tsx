@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ArrowRight, History, Info } from 'lucide-react';
+import { ChevronLeft, ArrowRight, History, Info, CheckCircle2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface PlaceBetScreenProps {
   onBack: () => void;
@@ -8,6 +9,7 @@ interface PlaceBetScreenProps {
 const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
   const [wager, setWager] = useState("50.00");
   const [selectedGrade, setSelectedGrade] = useState("7");
+  const [isConfirmed, setIsConfirmed] = useState(false);
   
   const currentGPA = 6.67;
   const platformFeeRate = 0.20; // 20% Fee
@@ -46,7 +48,50 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl relative transition-colors duration-200">
-      {/* Header - Remains Sticky */}
+      
+      {/* SUCCESS MODAL */}
+      <AnimatePresence>
+        {isConfirmed && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center px-6">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsConfirmed(false)}
+              className="absolute inset-0 bg-slate-900/60 backdrop-blur-md"
+            />
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="relative w-full max-w-[340px] bg-white dark:bg-dark-surface rounded-[32px] p-8 shadow-2xl text-center overflow-hidden"
+            >
+              <div className="flex justify-center mb-6">
+                <div className="bg-green-100 dark:bg-green-500/20 p-4 rounded-full ring-8 ring-green-50 dark:ring-green-500/5">
+                  <CheckCircle2 className="w-12 h-12 text-green-500" />
+                </div>
+              </div>
+              
+              <h2 className="text-2xl font-black text-primary-text dark:text-dark-text mb-2 tracking-tight">
+                Wager Confirmed
+              </h2>
+              <p className="text-slate-500 dark:text-dark-muted text-[15px] leading-snug mb-8">
+                Your <span className="font-bold text-primary-text dark:text-dark-text">${numericWager.toFixed(2)}</span> bet on Grade {selectedGrade} is locked. Good luck!
+              </p>
+              
+              {/* BUTTON NOW MATCHES WAGER BUTTON STYLE */}
+              <button 
+                onClick={() => setIsConfirmed(false)}
+                className="w-full bg-brand-blue text-white font-bold py-5 rounded-full shadow-lg shadow-brand-blue/20 hover:opacity-90 active:scale-[0.98] transition-all"
+              >
+                Return to Market
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Header */}
       <header className="flex items-center bg-white dark:bg-dark-surface sticky top-0 z-10 px-4 h-14 border-b border-slate-200 dark:border-slate-800 justify-between">
         <button 
           onClick={onBack}
@@ -54,21 +99,19 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
-        <h1 className="text-primary-text dark:text-dark-text text-[15px] font-semibold tracking-tight">Guess GPA</h1>
+        <h1 className="text-primary-text dark:text-dark-text text-[15px] font-semibold tracking-tight">Place Wager</h1>
         <div className="w-10" />
       </header>
 
       {/* Main Content Area */}
       <main className="flex-1 overflow-y-auto">
-        {/* Profile Section */}
         <div className="p-6 bg-white dark:bg-dark-surface border-b border-slate-100 dark:border-slate-800">
           <div className="flex items-center gap-4">
             <div className="relative w-16 h-16 shrink-0">
               <img 
                 src="https://media.licdn.com/dms/image/v2/C4E03AQEtk_sHGXqRYA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1609634162745?e=1774483200&v=beta&t=xoTTBDnSke7AQCZpPV40j_XnZLp-VXvRiBTNESuHTzI" 
-                alt="Paul Vrbik"
+                alt="Profile"
                 className="w-full h-full rounded-full object-cover ring-2 ring-blue-50 dark:ring-slate-800"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-green-500 border-2 border-white dark:border-dark-surface" />
             </div>
@@ -90,11 +133,10 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
         </div>
 
         <div className="px-6 py-8 flex flex-col gap-8">
-          {/* Target Grade Selection */}
           <section>
             <div className="flex items-center justify-between mb-4">
-              <label className="text-sm font-semibold text-slate-700 dark:text-dark-text">Predict GPA</label>
-              <span className="text-xs text-slate-400 dark:text-dark-muted">Volatile odds determined by overall GPA</span>
+              <label className="text-sm font-semibold text-slate-700 dark:text-dark-text">Predict Grade</label>
+              <span className="text-xs text-slate-400 dark:text-dark-muted">Volatile Odds</span>
             </div>
             <div className="grid grid-cols-7 gap-1.5 p-1.5 bg-slate-100 dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700">
               {["1", "2", "3", "4", "5", "6", "7"].map((grade) => (
@@ -113,7 +155,6 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
             </div>
           </section>
 
-          {/* Wager Input Section */}
           <section>
             <label className="block text-sm font-semibold text-slate-700 dark:text-dark-text mb-4">Wager Amount</label>
             <div className="relative group">
@@ -129,13 +170,18 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
               />
             </div>
             <div className="flex gap-2 mt-4">
-              <button onClick={() => setWager("10.00")} className="flex-1 py-2 rounded-full border border-slate-200 dark:border-slate-800 text-[13px] font-medium text-slate-600 dark:text-dark-text bg-white dark:bg-dark-surface hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Min $10</button>
-              <button onClick={() => setWager("100.00")} className="flex-1 py-2 rounded-full border border-slate-200 dark:border-slate-800 text-[13px] font-medium text-slate-600 dark:text-dark-text bg-white dark:bg-dark-surface hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">$100</button>
-              <button onClick={() => setWager("500.00")} className="flex-1 py-2 rounded-full border border-slate-200 dark:border-slate-800 text-[13px] font-medium text-slate-600 dark:text-dark-text bg-white dark:bg-dark-surface hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Max $500</button>
+              {["10.00", "100.00", "500.00"].map((val) => (
+                <button 
+                  key={val}
+                  onClick={() => setWager(val)} 
+                  className="flex-1 py-2 rounded-full border border-slate-200 dark:border-slate-800 text-[13px] font-medium text-slate-600 dark:text-dark-text bg-white dark:bg-dark-surface hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                >
+                  {val === "10.00" ? "Min $10" : val === "500.00" ? "Max $500" : `$${parseInt(val)}`}
+                </button>
+              ))}
             </div>
           </section>
 
-          {/* Summary Section */}
           <section className="bg-brand-blue/5 dark:bg-brand-blue/10 border border-brand-blue/10 dark:border-brand-blue/20 rounded-xl p-5">
             <div className="flex flex-col gap-3">
               <div className="flex justify-between items-center text-sm">
@@ -166,9 +212,11 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
             </div>
           </section>
 
-          {/* New Confirm Wager Position - Now Inline at bottom of scroll */}
           <section className="pt-4 pb-12">
-            <button className="w-full bg-brand-blue hover:opacity-90 active:scale-[0.98] text-white font-bold py-5 rounded-full shadow-lg shadow-brand-blue/20 transition-all flex items-center justify-center gap-2">
+            <button 
+              onClick={() => setIsConfirmed(true)}
+              className="w-full bg-brand-blue hover:opacity-90 active:scale-[0.98] text-white font-bold py-5 rounded-full shadow-lg shadow-brand-blue/20 transition-all flex items-center justify-center gap-2"
+            >
               <span>Confirm Wager</span>
               <ArrowRight className="w-5 h-5" />
             </button>

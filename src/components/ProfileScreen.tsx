@@ -61,7 +61,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigate }) => {
         </div>
         <div className="bg-white dark:bg-dark-surface p-4 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
           <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider">Total Games</span>
-          <p className="text-xl font-black text-primary-text dark:text-dark-text mt-1">40</p>
+          <p className="text-xl font-black text-primary-text dark:text-dark-text mt-1">56</p>
         </div>
       </div>
 

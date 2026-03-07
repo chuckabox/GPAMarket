@@ -20,19 +20,20 @@ const FloatingIcon = ({
   scale?: number 
 }) => (
   <motion.div
-    initial={{ x, y, opacity: 0, scale: 0, rotate: 0 }}
+    initial={{ x, y, opacity: 0.35, scale, rotate: 0 }}
     animate={{ 
-      x: [x - 15, x + 15, x],
-      y: [y - 20, y + 20, y],
+      // The last value in each array now matches the first value
+      x: [x, x - 15, x + 15, x], 
+      y: [y, y - 20, y + 20, y],
       opacity: [0.35, 0.65, 0.5, 0.65, 0.35],
-      scale: [scale, scale * 1.1, scale],
+      scale: [scale, scale * 1.1, scale * 0.95, scale],
       rotate: [0, 12, -8, 0]
     }}
     transition={{ 
-      duration: 10 + Math.random() * 5, 
+      duration: 12 + Math.random() * 5, // Slightly slower for smoother feel
       repeat: Infinity, 
       delay,
-      ease: "easeInOut"
+      ease: "linear" // Changed to linear or a consistent easeInOut for loop seamlessness
     }}
     className="absolute pointer-events-none text-brand-blue/40 dark:text-brand-blue/50 drop-shadow-md"
   >

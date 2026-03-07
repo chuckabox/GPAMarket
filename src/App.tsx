@@ -6,6 +6,7 @@ import SignUpScreen from './components/SignUpScreen';
 import MarketsScreen from './components/MarketsScreen';
 import PlaceBetScreen from './components/PlaceBetScreen';
 import MatchupsScreen from './components/MatchupsScreen';
+import DuelWagerScreen from './components/DuelWagerScreen'; // New
 import LeaderboardScreen from './components/LeaderboardScreen';
 import ProfileScreen from './components/ProfileScreen';
 import SettingsScreen from './components/SettingsScreen';
@@ -15,6 +16,7 @@ import CoursesScreen from './components/CoursesScreen';
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<Screen>('home');
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [selectedMatchup, setSelectedMatchup] = useState<any>(null);
 
   React.useEffect(() => {
     if (isDarkMode) {
@@ -28,6 +30,11 @@ export default function App() {
     setCurrentScreen(screen);
   };
 
+  const handleSelectMatchup = (matchup: any) => {
+    setSelectedMatchup(matchup);
+    setCurrentScreen('duel_wager');
+  };
+
   return (
     <div className="min-h-screen bg-slate-100">
       <AnimatePresence mode="wait">
@@ -39,9 +46,7 @@ export default function App() {
           transition={{ duration: 0.2 }}
         >
           {currentScreen === 'home' && (
-            <HomeScreen 
-              onGetStarted={() => setCurrentScreen('signup')} 
-            />
+            <HomeScreen onGetStarted={() => setCurrentScreen('signup')} />
           )}
           {currentScreen === 'signup' && (
             <SignUpScreen 
@@ -64,17 +69,20 @@ export default function App() {
           {currentScreen === 'matchups' && (
             <MatchupsScreen 
               onNavigate={handleNavigate}
+              onSelectMatchup={handleSelectMatchup}
+            />
+          )}
+          {currentScreen === 'duel_wager' && (
+            <DuelWagerScreen 
+              matchup={selectedMatchup}
+              onBack={() => setCurrentScreen('matchups')}
             />
           )}
           {currentScreen === 'leaderboard' && (
-            <LeaderboardScreen 
-              onNavigate={handleNavigate}
-            />
+            <LeaderboardScreen onNavigate={handleNavigate} />
           )}
           {currentScreen === 'profile' && (
-            <ProfileScreen 
-              onNavigate={handleNavigate}
-            />
+            <ProfileScreen onNavigate={handleNavigate} />
           )}
           {currentScreen === 'settings' && (
             <SettingsScreen 
