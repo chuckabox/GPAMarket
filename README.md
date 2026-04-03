@@ -51,6 +51,21 @@ npm install
 npm run dev
 ```
 
+## Demo Account
+
+Email:
+```
+student@example.com
+```
+
+Full Name:
+student
+
+Password:
+```
+demo1234
+```
+
 Visit:
 
 ```
