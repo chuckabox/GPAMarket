@@ -30,7 +30,7 @@ const MOCK_LEADERBOARD = [
   {
     id: '4',
     name: 'Andrej K.',
-    avatar: 'https://media.licdn.com/dms/image/v2/C5603AQGUrXhzYpFNPA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1653416381156?e=1774483200&v=beta&t=T29FYX5SPPetCRrSwCewDTe1VEgou2PtJiHKf6oMBnM',
+    avatar: 'https://media.licdn.com/dms/image/v2/C5603AQGUrXhzYpFNPA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1653416381156?e=1776902400&v=beta&t=zseZLfZnCeeu7H2QqfVUyUpMbf1qs1URMazNlMHuiJw',
     wins: 52,
     losses: 4,
   },
