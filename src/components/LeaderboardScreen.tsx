@@ -9,25 +9,25 @@ const MOCK_LEADERBOARD = [
   {
     id: '1',
     name: 'Elouise C.',
-    avatar: 'https://media.licdn.com/dms/image/v2/D5603AQExPpM0fJiaRw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684824595687?e=1774483200&v=beta&t=cw9r6IaZ7BI_8kxt8dPl-Fy1U_4K-ebOwyvQSr-PeNA',
+    avatar: 'https://media.licdn.com/dms/image/v2/D5603AQExPpM0fJiaRw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1684824595687?e=1776902400&v=beta&t=F8Cf_7WvhCbiS9iAe1z4KWj9L5ly9OX5jaHzd7xJgEI',
     wins: 52,
     losses: 4,
   },
   {
     id: '2',
     name: 'Paul V.',
-    avatar: 'https://media.licdn.com/dms/image/v2/C4E03AQEtk_sHGXqRYA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1609634162745?e=1774483200&v=beta&t=5-PmfToKsFbutseZXjaU6DJNO9DedBqSBVm9D3Wfrr0',
+    avatar: 'https://media.licdn.com/dms/image/v2/C4E03AQEtk_sHGXqRYA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1609634162745?e=1776902400&v=beta&t=cZGCd1FwFfONyE8LnHjOoUfyM9HKM4deuqSxLcr4xbc',
     wins: 52,
     losses: 4,
   },
   {
     id: '3',
     name: 'Felix H.',
-    avatar: 'https://media.licdn.com/dms/image/v2/D4D03AQGwtWIfkdI_6A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714480211761?e=1774483200&v=beta&t=H-1TcQopRLGwQMtX5XI74lC6eYex7zaFkQPeEht5xFE',
+    avatar: 'https://media.licdn.com/dms/image/v2/D4D03AQGwtWIfkdI_6A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1714480211760?e=1776902400&v=beta&t=-nTnPCrfx_KoYwh-MCqmhED53i6fG8SaQtkjM170IiU',
     wins: 52,
     losses: 4,
   },
-    {
+  {
     id: '4',
     name: 'Andrej K.',
     avatar: 'https://media.licdn.com/dms/image/v2/C5603AQGUrXhzYpFNPA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1653416381156?e=1774483200&v=beta&t=T29FYX5SPPetCRrSwCewDTe1VEgou2PtJiHKf6oMBnM',
@@ -111,21 +111,21 @@ const LeaderboardScreen: React.FC<LeaderboardScreenProps> = ({ onNavigate }) => 
           <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider">Student</span>
           <span className="text-[10px] font-bold text-slate-400 dark:text-dark-muted uppercase tracking-wider">Total Games / Record</span>
         </div>
-        
+
         {sortedLeaderboard.map((user, index) => (
           <div key={user.id} className="p-4 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
             <div className="flex items-center gap-4">
               <div className="w-8 flex justify-center">
-                {index === 0 ? <Medal className="w-6 h-6 text-yellow-500" /> : 
-                 index === 1 ? <Medal className="w-6 h-6 text-slate-300" /> : 
-                 index === 2 ? <Medal className="w-6 h-6 text-amber-600" /> : 
-                 <span className="text-sm font-bold text-slate-400">#{index + 1}</span>}
+                {index === 0 ? <Medal className="w-6 h-6 text-yellow-500" /> :
+                  index === 1 ? <Medal className="w-6 h-6 text-slate-300" /> :
+                    index === 2 ? <Medal className="w-6 h-6 text-amber-600" /> :
+                      <span className="text-sm font-bold text-slate-400">#{index + 1}</span>}
               </div>
-              <img 
-                src={user.avatar} 
-                alt={user.name} 
-                className="w-10 h-10 rounded-full border border-slate-200 object-cover" 
-                referrerPolicy="no-referrer" 
+              <img
+                src={user.avatar}
+                alt={user.name}
+                className="w-10 h-10 rounded-full border border-slate-200 object-cover"
+                referrerPolicy="no-referrer"
               />
               <span className="text-sm font-bold text-primary-text dark:text-dark-text">{user.name}</span>
             </div>

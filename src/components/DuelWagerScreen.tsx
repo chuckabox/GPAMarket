@@ -10,8 +10,8 @@ interface DuelWagerScreenProps {
 const DuelWagerScreen: React.FC<DuelWagerScreenProps> = ({ onBack, matchup }) => {
   // Pull data from the selected matchup or fallback to Felix vs Elouise
   const data = matchup || {
-    studentA: { name: 'Felix H.', avatar: 'https://media.licdn.com/dms/image/v2/D4D03AQGwtWIfkdI_6A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714480211761?e=1774483200&v=beta&t=H-1TcQopRLGwQMtX5XI74lC6eYex7zaFkQPeEht5xFE' },
-    studentB: { name: 'Elouise C.', avatar: 'https://media.licdn.com/dms/image/v2/D5603AQExPpM0fJiaRw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684824595687?e=1774483200&v=beta&t=cw9r6IaZ7BI_8kxt8dPl-Fy1U_4K-ebOwyvQSr-PeNA' },
+    studentA: { name: 'Felix H.', avatar: 'https://media.licdn.com/dms/image/v2/D4D03AQGwtWIfkdI_6A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1714480211760?e=1776902400&v=beta&t=-nTnPCrfx_KoYwh-MCqmhED53i6fG8SaQtkjM170IiU' },
+    studentB: { name: 'Elouise C.', avatar: 'https://media.licdn.com/dms/image/v2/D5603AQExPpM0fJiaRw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1684824595687?e=1776902400&v=beta&t=F8Cf_7WvhCbiS9iAe1z4KWj9L5ly9OX5jaHzd7xJgEI' },
     course: 'CSSE1001',
     type: 'Final Exam',
     split: 65,
@@ -22,13 +22,13 @@ const DuelWagerScreen: React.FC<DuelWagerScreenProps> = ({ onBack, matchup }) =>
   const [wager, setWager] = useState("25.00");
   const [selectedWinner, setSelectedWinner] = useState<'A' | 'B'>('B');
   const [isConfirmed, setIsConfirmed] = useState(false);
-  
+
   // Hardcoded Stats
   const gpaA = 6.75;
   const degreeA = "B. Computer Science";
   const gpaB = 6.80;
   const degreeB = "B. Biotechnology"; // Updated
-  
+
   const platformFeeRate = 0.20;
 
   const getMultiplier = (student: 'A' | 'B') => {
@@ -42,7 +42,7 @@ const DuelWagerScreen: React.FC<DuelWagerScreenProps> = ({ onBack, matchup }) =>
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl relative transition-colors duration-200">
-      
+
       <AnimatePresence>
         {isConfirmed && (
           <div className="fixed inset-0 z-50 flex items-center justify-center px-6">
@@ -72,11 +72,11 @@ const DuelWagerScreen: React.FC<DuelWagerScreenProps> = ({ onBack, matchup }) =>
       <main className="flex-1 overflow-y-auto">
         <div className="px-6 py-4 bg-white dark:bg-dark-surface border-b border-slate-100 dark:border-slate-800">
           <div className="flex flex-col items-center mb-3">
-             <div className="inline-flex items-center gap-1.5 bg-brand-blue/10 px-2.5 py-1 rounded-full mb-1">
-                <Swords className="w-3 h-3 text-brand-blue" />
-                <span className="text-[10px] font-bold text-brand-blue uppercase tracking-wider">{data.course} Duel</span>
-             </div>
-             <p className="text-[11px] text-slate-400 font-bold uppercase tracking-tight">{data.type}</p>
+            <div className="inline-flex items-center gap-1.5 bg-brand-blue/10 px-2.5 py-1 rounded-full mb-1">
+              <Swords className="w-3 h-3 text-brand-blue" />
+              <span className="text-[10px] font-bold text-brand-blue uppercase tracking-wider">{data.course} Duel</span>
+            </div>
+            <p className="text-[11px] text-slate-400 font-bold uppercase tracking-tight">{data.type}</p>
           </div>
 
           <div className="flex items-center justify-between gap-4 relative mb-2">
@@ -91,7 +91,7 @@ const DuelWagerScreen: React.FC<DuelWagerScreenProps> = ({ onBack, matchup }) =>
             </div>
 
             <div className="w-8 h-8 rounded-full bg-slate-50 dark:bg-dark-bg border border-slate-100 dark:border-slate-800 flex items-center justify-center shrink-0">
-               <span className="text-[9px] font-black text-slate-300 italic">VS</span>
+              <span className="text-[9px] font-black text-slate-300 italic">VS</span>
             </div>
 
             {/* Student B */}
@@ -112,8 +112,8 @@ const DuelWagerScreen: React.FC<DuelWagerScreenProps> = ({ onBack, matchup }) =>
                 <div style={{ width: `${data.split}%`, backgroundColor: '#048BA8' }} className="h-full transition-all" />
                 <div style={{ width: `${100 - data.split}%`, backgroundColor: '#F18F01' }} className="h-full transition-all" />
               </div>
-              
-              <div 
+
+              <div
                 className="absolute bottom-0 flex flex-col items-center pointer-events-none"
                 style={{ left: `${data.split}%`, transform: 'translateX(-50%)' }}
               >
@@ -133,14 +133,14 @@ const DuelWagerScreen: React.FC<DuelWagerScreenProps> = ({ onBack, matchup }) =>
               <label className="text-sm font-semibold text-slate-700 dark:text-dark-text">Select Winner</label>
             </div>
             <div className="grid grid-cols-2 gap-3 p-1 bg-slate-100 dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
-              <button 
-                onClick={() => setSelectedWinner('A')} 
+              <button
+                onClick={() => setSelectedWinner('A')}
                 className={`py-2.5 rounded-xl text-xs font-bold transition-all ${selectedWinner === 'A' ? 'bg-white text-brand-blue shadow-sm' : 'text-slate-500'}`}
               >
                 {data.studentA.name.split(' ')[0]}
               </button>
-              <button 
-                onClick={() => setSelectedWinner('B')} 
+              <button
+                onClick={() => setSelectedWinner('B')}
                 className={`py-2.5 rounded-xl text-xs font-bold transition-all ${selectedWinner === 'B' ? 'bg-white text-brand-blue shadow-sm' : 'text-slate-500'}`}
               >
                 {data.studentB.name.split(' ')[0]}

@@ -9,8 +9,8 @@ interface MatchupsScreenProps {
 const MOCK_MATCHUPS = [
   {
     id: '1',
-    studentA: { name: 'Felix H.', avatar: 'https://media.licdn.com/dms/image/v2/D4D03AQGwtWIfkdI_6A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714480211761?e=1774483200&v=beta&t=H-1TcQopRLGwQMtX5XI74lC6eYex7zaFkQPeEht5xFE', gpa: '6.75' },
-    studentB: { name: 'Elouise C.', avatar: 'https://media.licdn.com/dms/image/v2/D5603AQExPpM0fJiaRw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684824595687?e=1774483200&v=beta&t=cw9r6IaZ7BI_8kxt8dPl-Fy1U_4K-ebOwyvQSr-PeNA', gpa: '6.80' },
+    studentA: { name: 'Felix H.', avatar: 'https://media.licdn.com/dms/image/v2/D4D03AQGwtWIfkdI_6A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1714480211760?e=1776902400&v=beta&t=-nTnPCrfx_KoYwh-MCqmhED53i6fG8SaQtkjM170IiU', gpa: '6.75' },
+    studentB: { name: 'Elouise C.', avatar: 'https://media.licdn.com/dms/image/v2/D5603AQExPpM0fJiaRw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1684824595687?e=1776902400&v=beta&t=F8Cf_7WvhCbiS9iAe1z4KWj9L5ly9OX5jaHzd7xJgEI', gpa: '6.80' },
     course: 'CSSE1001',
     type: 'Final Exam',
     timeLeft: '5h 12m',
@@ -72,11 +72,10 @@ const ReactionButton = ({ emoji, initialCount }: { emoji: string; initialCount: 
   };
 
   return (
-    <button 
+    <button
       onClick={handleToggle}
-      className={`flex items-center gap-1 px-1.5 py-0.5 rounded-full border transition-all ${
-        isActive ? 'bg-brand-blue/10 border-brand-blue text-brand-blue' : 'bg-slate-100 dark:bg-slate-800 border-transparent'
-      }`}
+      className={`flex items-center gap-1 px-1.5 py-0.5 rounded-full border transition-all ${isActive ? 'bg-brand-blue/10 border-brand-blue text-brand-blue' : 'bg-slate-100 dark:bg-slate-800 border-transparent'
+        }`}
     >
       <span className="text-[10px]">{emoji}</span>
       <span className="text-[9px] font-bold">{count}</span>
@@ -109,9 +108,8 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate, onSelectMat
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`py-1.5 text-xs font-bold whitespace-nowrap border-b-2 transition-all ${
-                  activeTab === tab.id ? 'border-brand-blue text-brand-blue' : 'border-transparent text-slate-500 dark:text-dark-muted hover:text-slate-700'
-                }`}
+                className={`py-1.5 text-xs font-bold whitespace-nowrap border-b-2 transition-all ${activeTab === tab.id ? 'border-brand-blue text-brand-blue' : 'border-transparent text-slate-500 dark:text-dark-muted hover:text-slate-700'
+                  }`}
               >
                 {tab.label}
               </button>
@@ -123,8 +121,8 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate, onSelectMat
       <main className="flex-1 overflow-y-auto bg-white dark:bg-dark-surface divide-y divide-slate-50 dark:divide-slate-800 no-scrollbar">
         {activeTab === 'active' ? (
           MOCK_MATCHUPS.map((matchup) => (
-            <div 
-              key={matchup.id} 
+            <div
+              key={matchup.id}
               onClick={() => onSelectMatchup(matchup)}
               className="p-3 py-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer group"
             >
@@ -160,8 +158,8 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate, onSelectMat
                     <div style={{ width: `${matchup.split}%`, backgroundColor: '#048BA8' }} className="h-full transition-all" />
                     <div style={{ width: `${100 - matchup.split}%`, backgroundColor: '#F18F01' }} className="h-full transition-all" />
                   </div>
-                  
-                  <div 
+
+                  <div
                     className="absolute bottom-0 flex flex-col items-center pointer-events-none"
                     style={{ left: `${matchup.split}%`, transform: 'translateX(-50%)' }}
                   >
