@@ -1,20 +1,73 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# GPAMarket
 
-# Run and deploy your AI Studio app
+GPAMarket is a playful platform where students **bet on each other’s grades** and compete in academic duels.
 
-This contains everything you need to run your app locally.
+Built as a **frontend MVP in 24 hours for the 2026 Stupid Hackathon by UQIES**.
 
-View your app in AI Studio: https://ai.studio/apps/6d1bca5e-d720-4e1b-b82f-7c6b60a09307
+🏆 **Achievements**
+
+* Top 5 finish, earning Honourable Mention
+
+## Problem
+
+Students lack a fun, social way to:
+
+* Predict performance
+* Compare results
+* Track achievements
+
+GPAMarket turns academic competition into a gamified experience.
+
+## Solution
+
+GPAMarket drives engagement with:
+
+* **Competition**
+* **Prediction**
+* **Social interaction**
+
+Users make bets, challenge friends, and track who performs best.
+
+## Features
+
+* **General Bets** – Wager on other students’ final grades
+* **Duels** – Bet against a friend on who scores higher on an assessment
+* **Profiles & Leaderboards** – Track wins, losses, points, and top performers
+* **Social** – Connect, comment, and challenge classmates
+
+## MVP Scope
+
+* Frontend-only
+* No backend; focused on showcasing gameplay
+
+## Tech Stack
+
+* React, TypeScript, Vite, Tailwind CSS, Motion, Lucide Icons
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+```bash
+npm install
+npm run dev
+```
 
+## Demo Account
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Email:
+```
+student@example.com
+```
+
+Full Name:
+student
+
+Password:
+```
+demo1234
+```
+
+Visit:
+
+```
+http://localhost:3000
+```
