@@ -19,7 +19,7 @@ export const MOCK_MARKETS: Market[] = [
     participants: 128,
     timeLeft: '2d left',
     status: 'ACTIVE',
-    studentName: 'Felix H.',
+    studentName: 'Felix K.',
     icon: <Code2 className="w-4 h-4 text-brand-blue" />
   },
   {
