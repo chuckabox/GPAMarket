@@ -36,7 +36,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100">
+    <div className="min-h-full bg-slate-100">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentScreen}

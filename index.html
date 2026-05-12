@@ -2,12 +2,204 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <title>GPAMarket</title>
+    <style>
+      :root {
+        --phone-width: 393px;
+        --phone-height: 852px;
+        --bezel: 8px;
+        --frame-bg: #000000;
+        --bg-color: #0F172A;
+        --loader-color: #3B82F6;
+        --track-color: #475569;
+      }
+
+      html, body {
+        background-color: var(--bg-color);
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        transition: background-color 0.3s ease;
+      }
+
+      /* Device Frame Container */
+      .device-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Invisible on mobile, visible on desktop */
+      @media (max-width: 640px) {
+        .device-frame {
+          padding: 0 !important;
+          background: transparent !important;
+          border-radius: 0 !important;
+          box-shadow: none !important;
+          border: none !important;
+          outline: none !important;
+        }
+        .button, .inner-bezel, .home-bar {
+          display: none !important;
+        }
+        .screen-container {
+          width: 100vw !important;
+          height: 100vh !important;
+          border: none !important;
+          border-radius: 0 !important;
+          box-shadow: none !important;
+        }
+        #root {
+          width: 100vw !important;
+          height: 100vh !important;
+          border-radius: 0 !important;
+        }
+      }
+
+      .device-frame {
+        position: relative;
+        padding: 12px;
+        background: var(--frame-bg);
+        border-radius: 56px;
+        box-shadow: 0 40px 100px -20px rgba(0,0,0,0.6), 0 20px 50px -15px rgba(0,0,0,0.4);
+        border: 1px solid #333;
+        outline: 1px solid rgba(0,0,0,0.5);
+        z-index: 10;
+      }
+
+      /* Buttons */
+      .button {
+        position: absolute;
+        background: var(--frame-bg);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        width: 3px;
+        z-index: -1;
+      }
+      .btn-silent { top: 100px; left: -3px; height: 26px; }
+      .btn-vol-up { top: 150px; left: -3px; height: 52px; }
+      .btn-vol-down { top: 215px; left: -3px; height: 52px; }
+      .btn-power { top: 180px; right: -3px; height: 80px; }
+
+      /* Inner Bezel Highlight */
+      .inner-bezel {
+        position: absolute;
+        inset: 1px;
+        border-radius: 55px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+        z-index: 20;
+      }
+
+      /* Screen Content */
+      .screen-container {
+        position: relative;
+        width: var(--phone-width);
+        height: var(--phone-height);
+        background: #000;
+        border-radius: 44px;
+        overflow: hidden;
+        box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: column;
+      }
+
+      #root {
+        width: var(--phone-width);
+        height: var(--phone-height);
+        background: #fff;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-radius: 44px;
+      }
+
+      .dark #root {
+        background: #0F172A;
+      }
+
+      /* Home Bar */
+      .home-bar {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 140px;
+        height: 5px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        z-index: 100;
+        pointer-events: none;
+      }
+
+      .dark .home-bar {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .loader {
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        border: 5px solid var(--track-color);
+        border-bottom-color: var(--loader-color);
+        border-radius: 50%;
+        animation: rotation 1s linear infinite;
+        z-index: 50;
+        display: none; /* Hidden by default */
+      }
+
+      @keyframes rotation {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      /* Hide Scrollbar */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      * {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="./src/main.tsx"></script>
+    <div class="device-container">
+      <div class="device-frame">
+        <div class="button btn-silent"></div>
+        <div class="button btn-vol-up"></div>
+        <div class="button btn-vol-down"></div>
+        <div class="button btn-power"></div>
+        <div class="inner-bezel"></div>
+        <div class="screen-container">
+          <div id="root"></div>
+          <div class="home-bar"></div>
+        </div>
+      </div>
+      <div id="loading_indicator" class="loader"></div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Sync frame theme with app theme
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.attributeName === 'class') {
+            const isDark = document.documentElement.classList.contains('dark');
+            document.body.style.backgroundColor = isDark ? '#000814' : '#F1F5F9';
+          }
+        });
+      });
+      observer.observe(document.documentElement, { attributes: true });
+    </script>
   </body>
 </html>
+
 
