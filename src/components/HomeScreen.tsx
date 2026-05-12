@@ -43,7 +43,7 @@ const FloatingIcon = ({
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ onGetStarted }) => {
   return (
-    <div className="relative flex h-screen w-full flex-col overflow-hidden bg-white dark:bg-dark-bg font-sans max-w-md mx-auto shadow-2xl transition-colors duration-200">
+    <div className="relative flex h-full w-full flex-col overflow-hidden bg-white dark:bg-dark-bg font-sans max-w-md mx-auto shadow-2xl transition-colors duration-200">
       
       {/* Background Glows */}
       <div className="absolute inset-0 z-0 opacity-40 dark:opacity-20 pointer-events-none">

@@ -87,7 +87,7 @@ const MatchupsScreen: React.FC<MatchupsScreenProps> = ({ onNavigate, onSelectMat
   const [activeTab, setActiveTab] = useState<'active' | 'my_duels' | 'invites'>('active');
 
   return (
-    <div className="flex flex-col h-screen bg-[#f6f6f8] dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl overflow-hidden transition-colors duration-200">
+    <div className="flex flex-col h-full bg-[#f6f6f8] dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl overflow-hidden transition-colors duration-200">
       <header className="sticky top-0 z-10 bg-white/80 dark:bg-dark-surface/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
         <div className="flex items-center justify-between px-4 pt-3 pb-1">
           <div className="flex items-center gap-2">

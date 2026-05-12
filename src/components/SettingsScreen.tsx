@@ -9,7 +9,7 @@ interface SettingsScreenProps {
 
 const SettingsScreen: React.FC<SettingsScreenProps> = ({ onBack, isDarkMode, onToggleDarkMode }) => {
   return (
-    <div className="flex flex-col min-h-screen bg-[#f6f6f8] dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl relative overflow-x-hidden transition-colors duration-200">
+    <div className="flex flex-col min-h-full bg-[#f6f6f8] dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl relative overflow-x-hidden transition-colors duration-200">
       {/* Header */}
       <header className="bg-white dark:bg-dark-surface px-4 py-5 border-b border-slate-200 dark:border-slate-800 flex items-center sticky top-0 z-10">
         <button 

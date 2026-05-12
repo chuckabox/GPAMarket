@@ -47,7 +47,7 @@ const PlaceBetScreen: React.FC<PlaceBetScreenProps> = ({ onBack }) => {
   const potentialPayout = ((numericWager * parseFloat(multiplier)) - feeAmount).toFixed(2);
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl relative transition-colors duration-200">
+    <div className="flex flex-col min-h-full bg-slate-50 dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl relative transition-colors duration-200">
       
       {/* SUCCESS MODAL */}
       <AnimatePresence>

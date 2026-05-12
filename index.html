@@ -20,11 +20,9 @@
         margin: 0;
         padding: 0;
         width: 100%;
-        height: 100%;
-        overflow: hidden;
+        min-height: 100%;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         transition: background-color 0.3s ease;
       }
@@ -32,10 +30,11 @@
       /* Device Frame Container */
       .device-container {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
         width: 100%;
-        height: 100%;
+        min-height: 100vh;
+        padding: 40px 0;
       }
 
       /* Invisible on mobile, visible on desktop */
@@ -65,7 +64,9 @@
         }
       }
 
+
       .device-frame {
+        margin: auto 0;
         position: relative;
         padding: 12px;
         background: var(--frame-bg);

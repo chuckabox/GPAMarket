@@ -56,7 +56,7 @@ const TranscriptUploadScreen: React.FC<TranscriptUploadScreenProps> = ({ onNext,
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl transition-colors duration-200">
+    <div className="flex flex-col min-h-full bg-white dark:bg-dark-bg font-sans max-w-md mx-auto shadow-xl transition-colors duration-200">
       {/* Top Nav */}
       <div className="flex items-center px-4 py-4 border-b border-slate-100 dark:border-slate-800">
         <button 

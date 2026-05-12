@@ -36,10 +36,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-full bg-slate-100">
+    <div className="h-full bg-slate-100 flex flex-col">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentScreen}
+          className="h-full w-full"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
